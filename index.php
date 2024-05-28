@@ -5,7 +5,7 @@ define("URL","http://localhost/evaluacion2/");
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Clase 5</title>
+        <title>INICIO</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
