@@ -2,6 +2,6 @@
 
 
 <h1>
-    Evaluación 2 de PHP
+    PROYECTO DE PHP
 </h1>
 </div>

@@ -1,5 +1,5 @@
 <div class="display-1 text-center bg-dark text-white">
-                EXAMEN 2 PHP
+                PROYECTO DE PHP
             </div>
             <nav
                 class="navbar navbar-expand-sm navbar-light bg-light"
@@ -21,36 +21,14 @@
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URL;?>autor">Autores</a>
+                                <a class="nav-link" href="<?php echo URL;?>autor">PRODUCTOS</a>
                             </li>
                              
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URL; ?>Libros">Libros</a>
+                                <a class="nav-link" href="<?php echo URL; ?>Libros">PROVEEDORES</a>
                             </li>
                              
-                            <!--<li class="nav-item dropdown">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    id="dropdownId"
-                                    data-bs-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    >Dropdown</a
-                                >
-                                <div
-                                    class="dropdown-menu"
-                                    aria-labelledby="dropdownId"
-                                >
-                                    <a class="dropdown-item" href="#"
-                                        >Action 1</a
-                                    >
-                                    <a class="dropdown-item" href="#"
-                                        >Action 2</a
-                                    >
-                                </div>
-                            </li>
-                            //-->
+                            
                         </ul>
                         <form class="d-flex my-2 my-lg-0">
                             <input
