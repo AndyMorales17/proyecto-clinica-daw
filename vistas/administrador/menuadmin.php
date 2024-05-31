@@ -46,21 +46,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="alumno"></i>Todos los Alumnos</a>
+                    <a class="nav-link" href="#">SOLO EJEMPLO</i></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Buzon">Buzon Practicas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="grafica">Grafica</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mujeres">Mujeres</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="hombres">Hombres</a>
-                </li>
-
                 </li>
             </ul>
         </div>
