@@ -17,3 +17,10 @@
             </div>
         </header>
         
+        <footer class="footer text-center">
+        <?php 
+            require_once("vistas/administrador/pie.php");
+        ?>
+        </footer>
+
+        

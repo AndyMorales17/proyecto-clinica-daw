@@ -18,12 +18,15 @@ class contenido
                 $pagina = "vistas/administrador/menuadmin";
         }elseif ($url[0] == "inicio") {
             $pagina = "vistas/inicio.php";
-        }elseif ($url[0] == "servicios") {
-            $pagina = "vistas/administrador/servicios.php";
+        }elseif ($url[0] == "categoria") {
+            $pagina = "vistas/administrador/categoria.php";
         }elseif ($url[0] == "nosotros") {
             $pagina = "vistas/administrador/nosotros.php";
         }elseif ($url[0] == "contactos") {
             $pagina = "vistas/administrador/contactos.php";
+        }
+        elseif ($url[0] == "productos") {
+            $pagina = "vistas/administrador/productos.php";
         }
         return $pagina;
     }
