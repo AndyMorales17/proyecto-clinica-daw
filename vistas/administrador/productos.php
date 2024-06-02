@@ -1,6 +1,9 @@
 <?php
+include("Modelo/Producto.php");
 $controladorProductos = new ProductosController();
 $productos = $controladorProductos->listar();
+
+
 
 ?>
 
@@ -23,32 +26,54 @@ $productos = $controladorProductos->listar();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="addProductForm">
-                        <div class="mb-3">
+                    <form id="addProductForm" action="guarda.php" method="post" enctype="multipart/form-data">
+                       
+                    <div class="mb-3">
+                            <label for="productPrice" class="form-label">categoria</label>
+                            <input type="number" class="form-control" nombre="idcategoria" id="productPrice" required>
+                        </div>
+                    
+                    
+                    <div class="mb-3">
                             <label for="productName" class="form-label">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="productName" required>
+                            <input type="text" class="form-control" nombre="nombre" id="productName" required>
                         </div>
                         <div class="mb-3">
                             <label for="productDescription" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                            <textarea class="form-control" nombre="descripcion" id="productDescription" rows="3" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="productPrice" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="productPrice" required>
+                            <input type="number" class="form-control" nombre="precio" id="productPrice" required>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Estado</label>
+                            <input type="number" class="form-control" nombre="estado" id="productPrice" required>
+                        </div>
+
                         <div class="mb-3">
                             <label for="productImage" class="form-label">URL de la Imagen</label>
-                            <input type="file" class="form-control" iname="productImage" id="productImage" required>
+                            <input type="file" class="form-control" name="imagen" id="productImage" accept="image/jpeg">
                         </div>
-                        <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                        <button type="submit" name="ok1" class="btn btn-primary">Agregar Producto</button>
                     </form>
                 </div>
+
+
+                <?php
+                
+
+                
+                ?>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
+
+
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">PRODUCTOS</h2>
                 

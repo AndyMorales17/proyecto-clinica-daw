@@ -18,9 +18,5 @@ class ProductosController extends Conexion {
         return $resultado;
     }
 
-    public function agregar($Productos){
-        $sql = "INSERT INTO Producto (id_categoria, Nombre, Descripción, Precio, Imagen, Estado)
-        VALUES ('{$Productos->getIdCategoria()}', '{$Productos->getNombre()}', '{$Productos->getDescripción()}', '{$Productos->getPrecio()}', '{$Productos->getImagen()}', '{$Productos->Estado()}')";
-        $rs= $this->ejecutarSQL($sql);
-    }
+
 }
