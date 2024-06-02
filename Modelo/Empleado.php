@@ -1,82 +1,79 @@
 <?php
 
-Class Empleado{
+class Empleado {
 
-    Private $id_empleado;
-    Private $Nombre;
-    Private $Apellido;
-    Private $Dirección;
-    Private $Teléfono;
-    Private $carnet;
-    Private $correo;
-    Private $Estado;
+    private $id_empleado;
+    private $nombre;
+    private $apellido;
+    private $direccion;
+    private $telefono;
+    private $carnet;
+    private $correo;
+    private $estado;
 
-    public function __construct($id_emple="",$Nom="",$Ape="",$Dir="",$Tel="",$Car="",$correo="",$Esta=""){
-
-        $this -> $id_empleado = $id_emple;
-        $this -> $Nombre = $Nom;
-        $this -> $Apellido = $Ape;
-        $this -> $Dirección = $Dir;
-        $this -> $Teléfono = $Tel;
-        $this -> $carnet = $Car;
-        $this -> $correo = $correo;
-        $this -> $Estado = $Esta;
+    public function __construct($id_emple = "", $nom = "", $ape = "", $dir = "", $tel = "", $car = "", $correo = "", $esta = "") {
+        $this->id_empleado = $id_emple;
+        $this->nombre = $nom;
+        $this->apellido = $ape;
+        $this->direccion = $dir;
+        $this->telefono = $tel;
+        $this->carnet = $car;
+        $this->correo = $correo;
+        $this->estado = $esta;
     }
 
+    // Getters
+    public function getIdEmpleado() {
+        return $this->id_empleado;
+    }
 
-        // getters
-        public function getIdEmpleado() {
-            return $this->id_empleado;
-        }
-    
-        public function getNombre() {
-            return $this->Nombre;
-        }
-    
-        public function getApellido() {
-            return $this->Apellido;
-        }
-    
-        public function getDirección() {
-            return $this->Dirección;
-        }
-    
-        public function getTeléfono() {
-            return $this->Teléfono;
-        }
-    
-        public function getCarnet() {
-            return $this->carnet;
-        }
-    
-        public function getCorreo() {
-            return $this->correo;
-        }
-    
-        public function getEstado() {
-            return $this->Estado;
-        }
+    public function getNombre() {
+        return $this->nombre;
+    }
 
+    public function getApellido() {
+        return $this->apellido;
+    }
 
-            // setters
+    public function getDireccion() {
+        return $this->direccion;
+    }
+
+    public function getTelefono() {
+        return $this->telefono;
+    }
+
+    public function getCarnet() {
+        return $this->carnet;
+    }
+
+    public function getCorreo() {
+        return $this->correo;
+    }
+
+    public function getEstado() {
+        return $this->estado;
+    }
+
+    // Setters
     public function setIdEmpleado($id_emple) {
         $this->id_empleado = $id_emple;
     }
 
-    public function setNombre($Nom) {
-        $this->Nombre = $Nom;
+    public function setNombre($nom) {
+        $this->nombre = $nom;
     }
 
-    public function setApellido($Ape) {
-        $this->Apellido = $Ape;
+    public function setApellido($ape) {
+        $this->apellido = $ape;
     }
 
-    public function setDirección($Dir) {
-        $this->Dirección = $Dir;
+    public function setDireccion($dir) {
+        $this->direccion = $dir;
     }
 
-    public function setTeléfono($Tel) {
-        $this->Teléfono = $Tel;
+    public function setTelefono($tel) {
+        $this->telefono = $tel;
     }
 
     public function setCarnet($car) {
@@ -87,12 +84,9 @@ Class Empleado{
         $this->correo = $correo;
     }
 
-    public function setEstado($Esta) {
-        $this->Estado = $Esta;
+    public function setEstado($esta) {
+        $this->estado = $esta;
     }
-
-
-
 }
 
 ?>

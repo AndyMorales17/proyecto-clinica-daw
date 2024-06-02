@@ -1,60 +1,52 @@
 <?php
 
-Class Stock{
+class Stock {
 
-    Private $id_stock;
-    Private $id_producto;
-    private $Cantidad_stock;
-    private $Estado;
+    private $id_stock;
+    private $id_producto;
+    private $cantidad_stock;
+    private $estado;
 
-
-    public function __construct($id_stock="",$id_pro="", $Cant_stock="",$Estado=""){
-
-        $this -> $id_stock = $id_stock;
-        $this -> $id_producto = $id_pro;
-        $this -> $Cantidad_stock = $Cant_stock;
-        $this -> $Estado = $Estado;
-
+    public function __construct($id_stock = "", $id_producto = "", $cantidad_stock = "", $estado = "") {
+        $this->id_stock = $id_stock;
+        $this->id_producto = $id_producto;
+        $this->cantidad_stock = $cantidad_stock;
+        $this->estado = $estado;
     }
 
+    // Getters
+    public function getIdStock() {
+        return $this->id_stock;
+    }
 
-        // getters
-        public function getIdStock() {
-            return $this->id_stock;
-        }
-    
-        public function getIdProducto() {
-            return $this->id_producto;
-        }
-    
-        public function getCantidadStock() {
-            return $this->Cantidad_stock;
-        }
-    
-        public function getEstado() {
-            return $this->Estado;
-        }
-    
-        // setters
-        public function setIdStock($id_stock) {
-            $this->id_stock = $id_stock;
-        }
-    
-        public function setIdProducto($id_prod) {
-            $this->id_producto = $id_prod;
-        }
-    
-        public function setCantidadStock($Cant_stock) {
-            $this->Cantidad_stock = $Cant_stock;
-        }
-    
-        public function setEstado($Estado) {
-            $this->Estado = $Estado;
-        }
+    public function getIdProducto() {
+        return $this->id_producto;
+    }
 
+    public function getCantidadStock() {
+        return $this->cantidad_stock;
+    }
 
+    public function getEstado() {
+        return $this->estado;
+    }
+
+    // Setters
+    public function setIdStock($id_stock) {
+        $this->id_stock = $id_stock;
+    }
+
+    public function setIdProducto($id_producto) {
+        $this->id_producto = $id_producto;
+    }
+
+    public function setCantidadStock($cantidad_stock) {
+        $this->cantidad_stock = $cantidad_stock;
+    }
+
+    public function setEstado($estado) {
+        $this->estado = $estado;
+    }
 }
-
-
 
 ?>

@@ -28,6 +28,9 @@ class contenido
         elseif ($url[0] == "productos") {
             $pagina = "vistas/administrador/productos.php";
         }
+        elseif ($url[0] == "cuentas") {
+            $pagina = "vistas/administrador/cuentas.php";
+        }
         return $pagina;
     }
 }

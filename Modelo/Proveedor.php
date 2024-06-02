@@ -1,45 +1,37 @@
 <?php
 
-Class Proveedor{
+class Proveedor {
 
-    Private $id_proveedor;
-    Private $Nombre;
-    Private $Dirección;
-    Private $Teléfono;
+    private $id_proveedor;
+    private $Nombre;
+    private $Direccion;
+    private $Telefono;
 
-
-
-    public function __construct($id_prov="",$Nom="",$Dir="",$Tel=""){
-
-        $this -> $id_proveedor= $id_prov;
-        $this -> $Nombre= $Nom;
-        $this -> $Dirección= $Dir;
-        $this -> $Teléfono= $Tel;
+    public function __construct($id_prov = "", $Nom = "", $Dir = "", $Tel = "") {
+        $this->id_proveedor = $id_prov;
+        $this->Nombre = $Nom;
+        $this->Direccion = $Dir;
+        $this->Telefono = $Tel;
     }
 
+    // Getters
+    public function getIdProveedor() {
+        return $this->id_proveedor;
+    }
 
-    //Getters
+    public function getNombre() {
+        return $this->Nombre;
+    }
 
-        // getters
-        public function getIdProveedor() {
-            return $this->id_proveedor;
-        }
-    
-        public function getNombre() {
-            return $this->Nombre;
-        }
-    
-        public function getDirección() {
-            return $this->Dirección;
-        }
-    
-        public function getTeléfono() {
-            return $this->Teléfono;
-        }
+    public function getDireccion() {
+        return $this->Direccion;
+    }
 
+    public function getTelefono() {
+        return $this->Telefono;
+    }
 
-
-          // setters
+    // Setters
     public function setIdProveedor($id_prov) {
         $this->id_proveedor = $id_prov;
     }
@@ -48,17 +40,13 @@ Class Proveedor{
         $this->Nombre = $Nom;
     }
 
-    public function setDirección($Dir) {
-        $this->Dirección = $Dir;
+    public function setDireccion($Dir) {
+        $this->Direccion = $Dir;
     }
 
-    public function setTeléfono($Tel) {
-        $this->Teléfono = $Tel;
+    public function setTelefono($Tel) {
+        $this->Telefono = $Tel;
     }
-
-
-    }
-
-    
+}
 
 ?>

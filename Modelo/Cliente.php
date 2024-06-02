@@ -1,90 +1,83 @@
 <?php
 
+class Cliente {
 
-Class Cliente{
+    private $id_cliente;
+    private $nombre;
+    private $apellido;
+    private $email;
+    private $estado;
+    private $telefono;
+    private $direccion;
 
-    Private $id_cliente;
-    Private $Nombre;
-    Private $Apellido;
-    Private $Email;
-    Private $Estado;
-    Private $Teléfono;
-    Private $Dirección;
-
-
-
-    //Constructor
-
-    private function __construct($id_cli="", $Nom="",$ape="",$em="",$Esta="",$Tel="",$Dir=""){
-
-        $this -> $id_cliente = $id_cli;
-        $this -> $Nombre = $Nom;
-        $this -> $Apellido = $ape;
-        $this -> $Email= $em;
-        $this -> $Estado = $Esta;
-        $this -> $Teléfono = $Tel;
-        $this -> $Dirección = $Dir;
+    // Constructor
+    public function __construct($id_cli = "", $nom = "", $ape = "", $em = "", $esta = "", $tel = "", $dir = "") {
+        $this->id_cliente = $id_cli;
+        $this->nombre = $nom;
+        $this->apellido = $ape;
+        $this->email = $em;
+        $this->estado = $esta;
+        $this->telefono = $tel;
+        $this->direccion = $dir;
     }
 
-
-    //Gettters
-
-    public function getIdCliente(){
-        return $this -> $id_cliente;
+    // Getters
+    public function getIdCliente() {
+        return $this->id_cliente;
     }
 
-    public function getNombre(){
-        return $this-> $Nombre;
+    public function getNombre() {
+        return $this->nombre;
     }
 
-    public function getApellido(){
-        return $this -> $Apellido;
+    public function getApellido() {
+        return $this->apellido;
     }
 
-    public function getEmail(){
-        return $this -> $Email;
+    public function getEmail() {
+        return $this->email;
     }
 
-    public function getEstado(){
-        return $this -> $Estado;
+    public function getEstado() {
+        return $this->estado;
     }
 
-    public function getTeléfono(){
-        return $this -> $Teléfono;
+    public function getTelefono() {
+        return $this->telefono;
     }
 
-    public function getDirección(){
-        return $this -> $Dirección;
+    public function getDireccion() {
+        return $this->direccion;
     }
 
-    //Setters
-
-    public function setIdCliente($id_cli){
-        $this -> $id_cliente = $id_cli;
+    // Setters
+    public function setIdCliente($id_cli) {
+        $this->id_cliente = $id_cli;
     }
 
-    public function setNombre($Nom){
-        $this -> $Nombre = $Nom;
+    public function setNombre($nom) {
+        $this->nombre = $nom;
     }
 
-    public function setApellido($ape){
-        $this -> $Apellido = $ape;
+    public function setApellido($ape) {
+        $this->apellido = $ape;
     }
 
-    public function setEmail($em){
-        $this -> $Email = $em;
+    public function setEmail($em) {
+        $this->email = $em;
     }
 
-    public function setEstado($Esta){
-        $this -> $Estado = $Esta;
+    public function setEstado($esta) {
+        $this->estado = $esta;
     }
 
-    public function setTeléfono($Tel){
-        $this -> $Teléfono = $Tel;
+    public function setTelefono($tel) {
+        $this->telefono = $tel;
     }
 
-    public function setDirección($Dir){
-        $this -> $Dirección = $Dir;
+    public function setDireccion($dir) {
+        $this->direccion = $dir;
     }
 }
+
 ?>
