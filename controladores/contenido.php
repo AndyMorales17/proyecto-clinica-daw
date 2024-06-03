@@ -14,7 +14,7 @@ class contenido
         
         if($url[0]==null){
             $pagina="vistas/inicio.php";}
-        elseif ($url[0] == "estado") {
+        elseif ($url[0] == "estado") { 
                 $pagina = "vistas/administrador/menuadmin";
         }elseif ($url[0] == "inicio") {
             $pagina = "vistas/inicio.php";
