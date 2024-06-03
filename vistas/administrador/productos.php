@@ -3,8 +3,6 @@ $controler_producto = new ProductosController();
 
 
 if(isset($_POST['ok1'])){
-
-
        
     $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $_POST['Imagen'], $_POST['Estado']);
     $controler_producto->agregar($Producto);    

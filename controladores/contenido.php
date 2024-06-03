@@ -29,8 +29,7 @@ class contenido
             $pagina = "vistas/administrador/productos.php";
         }elseif($url[0] == "guarda"){
             $pagina = "vistas/administrador/guarda.php";
-        }
-        elseif ($url[0] == "proveedores") {
+        }elseif ($url[0] == "proveedores") {
             $pagina = "vistas/administrador/proveedores.php";
         }
         return $pagina;
