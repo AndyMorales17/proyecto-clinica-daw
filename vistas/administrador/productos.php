@@ -60,7 +60,7 @@ if(isset($_POST['ok1'])){
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> 
                 </div>
             </div>
         </div>
@@ -103,6 +103,7 @@ if(isset($_POST['ok1'])){
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button class='btn btn-outline-dark' type="submit" data-bs-dismiss="modal" name=del >Eliminar</button>
                                 </div>
                             </div>
                         </div>
