@@ -5,7 +5,7 @@ class Producto {
     private $id_producto;
     private $id_categoria;
     private $Nombre;
-    private $Descripcion;
+    private $Descripción;
     private $Precio;
     private $Imagen;
     private $Estado;
@@ -14,7 +14,7 @@ class Producto {
         $this->id_producto = $id_prod;
         $this->id_categoria = $id_cat;
         $this->Nombre = $Nom;
-        $this->Descripcion = $Des;
+        $this->Descripción = $Des;
         $this->Precio = $Pre;
         $this->Imagen = $Img;
         $this->Estado = $Esta;
@@ -34,7 +34,7 @@ class Producto {
     }
 
     public function getDescripcion() {
-        return $this->Descripcion;
+        return $this->Descripción;
     }
 
     public function getPrecio() {
@@ -63,7 +63,7 @@ class Producto {
     }
 
     public function setDescripcion($Des) {
-        $this->Descripcion = $Des;
+        $this->Descripción = $Des;
     }
 
     public function setPrecio($Pre) {

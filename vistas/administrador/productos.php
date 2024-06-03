@@ -1,8 +1,14 @@
 <?php
-$controladorProductos = new ProductosController();
-$productos = $controladorProductos->listar();
+$controler_producto = new ProductosController();
 
 
+if(isset($_POST['ok1'])){
+
+
+       
+    $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $_POST['Estado'], $_POST['Imagen']);
+    $controler_producto->agregar($Producto);
+}
 
 
 ?>
@@ -10,20 +16,6 @@ $productos = $controladorProductos->listar();
 
 <section class="py-5 bg-light mt-5 mb-0">
 
-
-<?php
-
-$controlerProductos = new ProductosController();
-$producto = $controlerProductos->agregar();
-
-
-if(isset($_POST['ok1'])){
-       
-    $producto = new producto ($_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $_POST['Estado'], $_POST['Imagen']);
-    $controlerProductos->agregar($producto);
-}
-
-?>
 
 <div class="container mt-5">
         <!-- Botón para abrir el modal -->
@@ -45,42 +37,36 @@ if(isset($_POST['ok1'])){
                        
                     <div class="mb-3">
                             <label for="productPrice" class="form-label">categoria</label>
-                            <input type="number" class="form-control" name="d_categoria" id="productPrice" required>
+                            <input type="number" class="form-control" name="id_categoria" id="id_categoria" required>
                         </div>
                     
                     
                     <div class="mb-3">
                             <label for="productName" class="form-label">Nombre del Producto</label>
-                            <input type="text" class="form-control" name="Nombre" id="productName" required>
+                            <input type="text" class="form-control" name="Nombre" id="Nombre" required>
                         </div>
                         <div class="mb-3">
                             <label for="productDescription" class="form-label">Descripción</label>
-                            <textarea class="form-control" name="Descripcion" id="productDescription" rows="3" required></textarea>
+                            <textarea class="form-control" name="Descripción" id="Descripción" rows="3" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="productPrice" class="form-label">Precio</label>
-                            <input type="number" class="form-control" name="Precio" id="productPrice" required>
+                            <input type="number" class="form-control" name="Precio" id="Precio" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="productPrice" class="form-label">Estado</label>
-                            <input type="number" class="form-control" name="Estado" id="productPrice" required>
+                            <input type="number" class="form-control" name="Estado" id="Estado" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="productImage" class="form-label">URL de la Imagen</label>
-                            <input type="file" class="form-control" name="Imagen" id="productImage" accept="image/jpeg/png">
+                            <input type="file" class="form-control" name="Imagen" id="Imagen" accept="image/jpeg/png">
                         </div>
                         <button type="submit" name="ok1" class="btn btn-primary">Agregar Producto</button>
                     </form>
                 </div>
 
-
-                <?php
-                
-
-                
-                ?>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
@@ -93,7 +79,7 @@ if(isset($_POST['ok1'])){
                 <h2 class="fw-bolder mb-4">PRODUCTOS</h2>
 
 <div class="row row-cols-1 row-cols-md-4 g-3">
-    <?php foreach ($productos as $producto): ?>
+    <?php foreach ($controler_producto->listar() as $producto): ?>
     <div class="col mb-5">
         <div class="card h-100">
             <!-- Product image-->
