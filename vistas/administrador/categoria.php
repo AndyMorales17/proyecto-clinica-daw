@@ -2,7 +2,7 @@
 <section class="page-section portfolio mt-5 mb-5" id="portfolio">
     <div class="container">
         <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">SERVICIOS</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">CATEGORIAS</h2>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
