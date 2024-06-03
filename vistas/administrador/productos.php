@@ -7,7 +7,8 @@ if(isset($_POST['ok1'])){
 
        
     $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $_POST['Imagen'], $_POST['Estado']);
-    $controler_producto->agregar($Producto);
+    $controler_producto->agregar($Producto);    
+
 }
 ?>
 
@@ -48,7 +49,7 @@ if(isset($_POST['ok1'])){
                         </div>
                         <div class="mb-3">
                             <label for="productImage" class="form-label">URL de la Imagen</label>
-                            <input type="file" class="form-control" name="Imagen" id="Imagen" accept="image/jpeg/png">
+                            <input type="file" class="form-control" name="Imagen" id="Imagen" required accept="image/png/jpg">
                         </div>
 
                         <div class="mb-3">
