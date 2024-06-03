@@ -7,10 +7,10 @@ class contenido
         require_once("conexion.php");
 
 
-        $url=isset($_GET["url"])? $_GET["url"]:null;
-        $url=explode("/",$url);
-        $id = end($url); 
-        $pagina="";
+        $url = isset($_GET["url"]) ? $_GET["url"] : null;
+        $url = explode("/", $url);
+        $id = end($url);
+        $pagina = "";
         
         if($url[0]==null){
             $pagina="vistas/inicio.php";}
@@ -27,6 +27,8 @@ class contenido
         }
         elseif ($url[0] == "productos") {
             $pagina = "vistas/administrador/productos.php";
+        }elseif($url[0] == "guarda"){
+            $pagina = "vistas/administrador/guarda.php";
         }
         elseif ($url[0] == "cuentas") {
             $pagina = "vistas/administrador/cuentas.php";
