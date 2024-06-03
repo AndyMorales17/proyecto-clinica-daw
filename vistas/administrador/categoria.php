@@ -31,7 +31,7 @@ $categorias6 = $controlador->listar6();
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/medicamento1.png" alt="..." style="height: 300px; width: 100%; object-fit: cover;"/>
                         </a>
                         <div class="portfolio-details mt-2">
                             <h3><?php echo htmlspecialchars($categoria['Nombre']); ?></h3>
@@ -51,7 +51,7 @@ $categorias6 = $controlador->listar6();
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/personales.png" alt="..." style="height: 300px; width: 100%; object-fit: cover;"/>
                         </a>
                         <div class="portfolio-details mt-2">
                             <h3><?php echo htmlspecialchars($categoria['Nombre']); ?></h3>
@@ -71,7 +71,7 @@ $categorias6 = $controlador->listar6();
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/vitaminas.png" alt="..." style="height: 300px; width: 100%; object-fit: cover;"/>
                         </a>
                         <div class="portfolio-details mt-2">
                             <h3><?php echo htmlspecialchars($categoria['Nombre']); ?></h3>
@@ -91,7 +91,7 @@ $categorias6 = $controlador->listar6();
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/aparatos.png" alt="..." style="height: 300px; width: 100%; object-fit: cover;"/>
                         </a>
                         <div class="portfolio-details mt-2">
                             <h3><?php echo htmlspecialchars($categoria['Nombre']); ?></h3>
@@ -111,7 +111,7 @@ $categorias6 = $controlador->listar6();
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/vacunas.png" alt="..." style="height: 300px; width: 100%; object-fit: cover;"/>
                         </a>
                         <div class="portfolio-details mt-2">
                             <h3><?php echo htmlspecialchars($categoria['Nombre']); ?></h3>
@@ -131,7 +131,7 @@ $categorias6 = $controlador->listar6();
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                            <img class="img-fluid" src="assets/img/botiquin.png" alt="..." style="height: 300px; width: 100%; object-fit: cover;"/>
                         </a>
                         <div class="portfolio-details mt-2">
                             <h3><?php echo htmlspecialchars($categoria['Nombre']); ?></h3>
