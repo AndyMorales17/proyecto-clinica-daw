@@ -1,6 +1,7 @@
 <?php
 $controler_producto = new ProductosController();
 
+
 if(isset($_POST['ok1'])){
 
 
@@ -8,7 +9,6 @@ if(isset($_POST['ok1'])){
     $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $_POST['Estado'], $_POST['Imagen']);
     $controler_producto->agregar($Producto);
 }
-?>
 ?>
 
 <section class="py-5 bg-light mt-5 mb-0">
@@ -29,6 +29,7 @@ if(isset($_POST['ok1'])){
                 </div>
                 <div class="modal-body">
                     <form id="addProductForm" method="post" enctype="multipart/form-data">
+
                         <div class="mb-3">
                             <label for="id_categoria" class="form-label">Categoría</label>
                             <input type="number" class="form-control" name="id_categoria" id="id_categoria" required>
@@ -45,6 +46,7 @@ if(isset($_POST['ok1'])){
                             <label for="Precio" class="form-label">Precio</label>
                             <input type="number" class="form-control" name="Precio" id="Precio" required>
                         </div>
+
                         <div class="mb-3">
                             <label for="Estado" class="form-label">Estado</label>
                             <input type="number" class="form-control" name="Estado" id="Estado" required>
@@ -52,6 +54,7 @@ if(isset($_POST['ok1'])){
                         <div class="mb-3">
                             <label for="Imagen" class="form-label">URL de la Imagen</label>
                             <input type="file" class="form-control" name="Imagen" id="Imagen" accept="image/jpeg, image/png">
+
                         </div>
                         <button type="submit" name="ok1" class="btn btn-primary">Agregar Producto</button>
                     </form>
