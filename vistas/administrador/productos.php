@@ -1,5 +1,4 @@
 <?php
-include("Modelo/Producto.php");
 $controladorProductos = new ProductosController();
 $productos = $controladorProductos->listar();
 
@@ -76,12 +75,6 @@ $productos = $controladorProductos->listar();
 
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">PRODUCTOS</h2>
-                
-
-
-
-           
-
 
 <div class="row row-cols-1 row-cols-md-4 g-3">
     <?php foreach ($productos as $producto): ?>
