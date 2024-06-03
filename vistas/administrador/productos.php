@@ -12,6 +12,17 @@ if(isset($_POST['ok1'])){
 }
 ?>
 
+
+<?php
+
+
+if(isset($_POST['ok3'])){
+
+    $Eliminar = new Producto ($_POST['id_producto']);
+    $controler_producto->delete($Eliminar);
+}
+?>
+
 <section class="py-5 bg-light mt-5 mb-0">
     <div class="container mt-5">
         <!-- Botón para abrir el modal -->
@@ -103,6 +114,7 @@ if(isset($_POST['ok1'])){
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" name="ok3" class="btn btn-primary" data-bs-dismiss="modal">Eliminar</button>
                                 </div>
                             </div>
                         </div>
