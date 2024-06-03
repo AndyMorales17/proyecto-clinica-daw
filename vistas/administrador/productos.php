@@ -1,7 +1,17 @@
 <?php
 $controler_producto = new ProductosController();
 
+if(isset($_POST["ok1"])){
+       
+$id_categoria=$_POST['idcategoria'];
+$Nombre=$_POST['nombre'];
+$Descripcion=$_POST['descripcion'];
+$Precio=$_POST['precio'];
+$Imagen=$_POST['estado'];
+$Estado=$_POST['imagen'];
+    
 
+<<<<<<< HEAD
 if(isset($_POST['ok1'])){
 
 
@@ -10,6 +20,19 @@ if(isset($_POST['ok1'])){
     $controler_producto->agregar($Producto);
 }
 
+=======
+    $Producto = new Producto();
+
+    $Producto->setIdCategoria($id_categoria);
+    $Producto->setNombre($Nombre);
+    $Producto->setDescripcion($Descripcion);
+    $Producto->setPrecio($Precio);
+    $Producto->setEstado($Estado);
+    $Producto->setImagen($Imagen);
+
+    $controladorProductos->insertar($Producto);
+}
+>>>>>>> d80f3d0db938ee0131384d538f096b162bbf300a
 
 ?>
 
@@ -37,12 +60,17 @@ if(isset($_POST['ok1'])){
                        
                     <div class="mb-3">
                             <label for="productPrice" class="form-label">categoria</label>
+<<<<<<< HEAD
                             <input type="number" class="form-control" name="id_categoria" id="id_categoria" required>
+=======
+                            <input type="number" class="form-control" name="idcategoria" id="productPrice" required>
+>>>>>>> d80f3d0db938ee0131384d538f096b162bbf300a
                         </div>
                     
                     
                     <div class="mb-3">
                             <label for="productName" class="form-label">Nombre del Producto</label>
+<<<<<<< HEAD
                             <input type="text" class="form-control" name="Nombre" id="Nombre" required>
                         </div>
                         <div class="mb-3">
@@ -52,16 +80,36 @@ if(isset($_POST['ok1'])){
                         <div class="mb-3">
                             <label for="productPrice" class="form-label">Precio</label>
                             <input type="number" class="form-control" name="Precio" id="Precio" required>
+=======
+                            <input type="text" class="form-control" name="nombre" id="productName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" name="descripcion" id="productDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Precio</label>
+                            <input type="number" class="form-control" name="precio" id="productPrice" required>
+>>>>>>> d80f3d0db938ee0131384d538f096b162bbf300a
                         </div>
 
                         <div class="mb-3">
                             <label for="productPrice" class="form-label">Estado</label>
+<<<<<<< HEAD
                             <input type="number" class="form-control" name="Estado" id="Estado" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="productImage" class="form-label">URL de la Imagen</label>
                             <input type="file" class="form-control" name="Imagen" id="Imagen" accept="image/jpeg/png">
+=======
+                            <input type="number" class="form-control" name="estado" id="productPrice" required>
+                        </div>
+
+                        <div class="mb-3">
+                        <label for="productImage" class="form-label">URL de la Imagen</label>
+                        <input type="text" class="form-control" name="imagen" id="productImage" placeholder="Ingrese la URL de la imagen">
+>>>>>>> d80f3d0db938ee0131384d538f096b162bbf300a
                         </div>
                         <button type="submit" name="ok1" class="btn btn-primary">Agregar Producto</button>
                     </form>
