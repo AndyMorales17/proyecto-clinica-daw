@@ -1,8 +1,19 @@
     <?php
       $controlador_proveedor= new controler_proveedor();
       $proveedores = $controlador_proveedor->listar();
-    ?>
 
+
+
+if(isset($_POST['ok1'])) {
+
+    $Nom = $_POST['nombre'];
+    $Dir = $_POST['direccion'];
+    $Tel = $_POST['telefono'];
+    $proveedor = new Proveedor("", $Nom, $Dir, $Tel);
+    $controler_proveedor->agregar($proveedor);
+
+}
+?>
     <style>
         .data-table-container {
             margin: 20px auto;
@@ -77,6 +88,7 @@
                                 <th>Nombre</th>
                                 <th>Dirección</th>
                                 <th>Teléfono</th>
+                                
                             </tr>
                         </thead>
 

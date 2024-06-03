@@ -15,6 +15,12 @@ class controler_proveedor extends Conexion {
         return $resultado;
     }
 
-
+    public function agregar($Proveedor){
+        $sql = "INSERT INTO Proveedor (Nombre, Dirección, Teléfono)
+                VALUES ('{$Proveedor->getNombre()}', '{$Proveedor->getDireccion()}', '{$Proveedor->getTelefono()}')";
+    
+        $rs = $this->ejecutarSQL($sql); 
+    }
+    
 
 }
