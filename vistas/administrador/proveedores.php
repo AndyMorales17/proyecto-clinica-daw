@@ -50,7 +50,7 @@ if(isset($_POST['ok1'])) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="addSupplierForm" action="add_supplier.php" method="post">
+            <form id="addSupplierForm" action="add_supplier.php" method="post">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre del Proveedor</label>
                         <input type="text" class="form-control" name="nombre" id="nombre" required>
@@ -63,7 +63,7 @@ if(isset($_POST['ok1'])) {
                         <label for="telefono" class="form-label">Teléfono</label>
                         <input type="text" class="form-control" name="telefono" id="telefono" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar Proveedor</button>
+                    <button type="submit" name="ok1" class="btn btn-primary">Agregar Proveedor</button>
                 </form>
             </div>
             <div class="modal-footer">
