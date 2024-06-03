@@ -2,11 +2,12 @@
 $controler_producto = new ProductosController();
 if(isset($_POST['ok1'])){
 
+
     $imageFile = $_FILES['Imagen'];
     $imageData = file_get_contents($imageFile['tmp_name']);
     $imageBlob = base64_encode($imageData);
     $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $imageBlob,"");
-    $controler_producto->agregar($Producto);    
+
 
 }
 ?>

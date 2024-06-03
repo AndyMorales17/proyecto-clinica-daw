@@ -1,18 +1,13 @@
     <?php
-      $controlador_proveedor= new controler_proveedor();
-      $proveedores = $controlador_proveedor->listar();
+    
+    $ControllerProveedor = new controler_proveedor();
+    
+      if (isset($_POST['ok1'])) {
+        
+        $Proveedor = new Proveedor ("", $_POST['Nombre'], $_POST['Dirección'], $_POST['Teléfono']);
+        $ControllerProveedor->agregar($Proveedor);
 
-
-
-if(isset($_POST['ok1'])) {
-
-    $Nom = $_POST['nombre'];
-    $Dir = $_POST['direccion'];
-    $Tel = $_POST['telefono'];
-    $proveedor = new Proveedor("", $Nom, $Dir, $Tel);
-    $controler_proveedor->agregar($proveedor);
-
-}
+      }
 ?>
     <style>
         .data-table-container {
@@ -50,18 +45,18 @@ if(isset($_POST['ok1'])) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <form id="addSupplierForm" action="add_supplier.php" method="post">
+            <form id="addSupplierForm" method="post">
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre del Proveedor</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" required>
+                        <label for="Nombre" class="form-label">Nombre del Proveedor</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" required>
                     </div>
                     <div class="mb-3">
-                        <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion" required>
+                        <label for="Dirección" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" name="Dirección" id="Dirección" required>
                     </div>
                     <div class="mb-3">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" name="telefono" id="telefono" required>
+                        <label for="Teléfono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" name="Teléfono" id="Teléfono" required>
                     </div>
                     <button type="submit" name="ok1" class="btn btn-primary">Agregar Proveedor</button>
                 </form>
@@ -93,7 +88,7 @@ if(isset($_POST['ok1'])) {
                         </thead>
 
                         <tbody>
-                        <?php foreach ($proveedores as $proveedor): ?>
+                        <?php foreach ($ControllerProveedor->listar() as $proveedor): ?>
                       <tr>
                     <td><?php echo htmlspecialchars($proveedor['id_proveedor']); ?></td>
                     <td><?php echo htmlspecialchars($proveedor['Nombre']); ?></td>
