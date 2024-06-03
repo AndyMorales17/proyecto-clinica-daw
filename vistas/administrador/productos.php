@@ -4,8 +4,6 @@ $controler_producto = new ProductosController();
 
 if(isset($_POST['ok1'])){
 
-
-       
     $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $_POST['Imagen'], $_POST['Estado']);
     $controler_producto->agregar($Producto);    
 
@@ -18,7 +16,7 @@ if(isset($_POST['ok1'])){
 
 if(isset($_POST['ok3'])){
 
-    $Eliminar = new Producto ($_POST['id_producto']);
+    $Eliminar = $_POST['id'];
     $controler_producto->delete($Eliminar);
 }
 ?>
@@ -113,8 +111,12 @@ if(isset($_POST['ok3'])){
                                     <p><strong>Precio:</strong> $<?php echo htmlspecialchars($producto['Precio']); ?></p>
                                 </div>
                                 <div class="modal-footer">
+                              
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <form method=post><input type='hidden' value="<?php echo $producto['id_producto'];?>" name='id'>
                                     <button type="submit" name="ok3" class="btn btn-primary" data-bs-dismiss="modal">Eliminar</button>
+                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>
