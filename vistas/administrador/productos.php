@@ -63,7 +63,7 @@ if(isset($_POST['ok3'])){
 
                         <div class="mb-3">
                             <label for="Estado" class="form-label">Estado</label>
-                            <input type="number" class="form-control" name="Estado" id="Estado" required>
+                            <input type="text" class="form-control" name="Estado" id="Estado" required>
                         </div>
                         <button type="submit" name="ok1" class="btn btn-primary">Agregar Producto</button>
                     </form>
