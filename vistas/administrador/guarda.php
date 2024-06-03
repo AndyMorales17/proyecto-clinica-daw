@@ -10,9 +10,10 @@ $estado = $connect->real_escape_string($_POST['estado']);
 
 
 
+
 $sql = "INSERT INTO Producto (id_categoria, Nombre, Descripción, Precio, Imagen, Estado)
 VALUES ( $id_categoria,'$nombre', '$descripcion', '$precio', '$estado' );"
- $rs= $this->ejecutarSQL($sql);
+ $this->ejecutarSQL($sql);
 
  if ($rs == 1) {
     echo "Se ha insertado correctamente";
