@@ -31,6 +31,8 @@ class contenido
             $pagina = "vistas/administrador/guarda.php";
         }elseif ($url[0] == "proveedores") {
             $pagina = "vistas/administrador/proveedores.php";
+        }elseif($url[0] == "cuidado_personal"){
+            $pagina = "vistas/administrador/cuidado_personal.php";
         }
         return $pagina;
     }
