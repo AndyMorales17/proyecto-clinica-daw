@@ -82,21 +82,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <nav class="navbar text-uppercase fixed-top" id="mainNav">
     <div class="container">
-        <button class="navbar-toggler text-uppercase font-weight-bold rounded" type="button">
-        <span style="font-size: 24px;">Menu <i class="fas fa-bars"></i> </span>
+        <button class="navbar-toggler text-uppercase font-weight-bold rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+            <span style="font-size: 24px;">Menu <i class="fas fa-bars"></i> </span>
         </button>
         <div class="navbar-brand">
-        <a href="inicio" style="text-decoration: none; color: #ffffff;">
-    <img src="assets/img/hospital1.png" alt="Logo" style="height: 40px; margin-right: 10px;"> FARMACIA MAZAPAN
-</a>
+            <a href="inicio" style="text-decoration: none; color: #ffffff;">
+                <img src="assets/img/hospital1.png" alt="Logo" style="height: 40px; margin-right: 10px;"> FARMACIA MAZAPAN
+            </a>
         </div>
-        <div class="navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="categoria">CATEGORIA</a></li>
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="nosotros">NOSOTROS</a></li>
-                <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="contactos">CONTACTANOS</a></li>
-                <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="cuentas">CUENTAS</a></li>
+
+                <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="proveedores">Proveedores</a></li>
             </ul>
+
         </div>
     </div>
 </nav>
+

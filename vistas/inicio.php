@@ -15,12 +15,10 @@
                 <!-- Masthead Subheading-->
                 <p class="masthead-subheading font-weight-light mb-0"></p>
             </div>
+
+            
         </header>
         
-        <footer class="footer text-center">
-        <?php 
-            require_once("vistas/administrador/pie.php");
-        ?>
-        </footer>
+
 
         

@@ -30,8 +30,8 @@ class contenido
         }elseif($url[0] == "guarda"){
             $pagina = "vistas/administrador/guarda.php";
         }
-        elseif ($url[0] == "cuentas") {
-            $pagina = "vistas/administrador/cuentas.php";
+        elseif ($url[0] == "proveedores") {
+            $pagina = "vistas/administrador/proveedores.php";
         }
         return $pagina;
     }
