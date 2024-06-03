@@ -29,4 +29,10 @@ class ProductosController extends Conexion {
     }
 
 
+    public function delete($id){
+        $sql = "DELETE FROM Producto WHERE id_producto = '{$id->getIdProducto()}'";
+        $rs=$this->ejecutarSQL($sql);
+    }
+
+
 }
