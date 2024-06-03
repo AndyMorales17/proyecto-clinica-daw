@@ -22,7 +22,7 @@ class ProductosController extends Conexion {
 
         $sql = "INSERT INTO Producto (id_categoria, Nombre, Descripción, Precio, Imagen, Estado)
          VALUES ( '{$Producto->getIdCategoria()}', '{$Producto->getNombre()}', '{$Producto->getDescripcion()}',
-         '{$Producto->getPrecio()}', '{$Producto->getImagen()}', '{$Producto->getEstado()}')";
+         '{$Producto->getPrecio()}', '{$Producto->getImagen()}', 'Activo')";
 
          $rs=$this->ejecutarSQL($sql); 
 
