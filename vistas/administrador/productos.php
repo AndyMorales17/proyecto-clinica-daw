@@ -6,7 +6,7 @@ if(isset($_POST['ok1'])){
 
 
        
-    $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $_POST['Estado'], $_POST['Imagen']);
+    $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $_POST['Imagen'], $_POST['Estado']);
     $controler_producto->agregar($Producto);
 }
 
@@ -53,16 +53,16 @@ if(isset($_POST['ok1'])){
                             <label for="productPrice" class="form-label">Precio</label>
                             <input type="number" class="form-control" name="Precio" id="Precio" required>
                         </div>
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label">URL de la Imagen</label>
+                            <input type="file" class="form-control" name="Imagen" id="Imagen" accept="image/jpeg/png">
+                        </div>
 
                         <div class="mb-3">
                             <label for="productPrice" class="form-label">Estado</label>
                             <input type="number" class="form-control" name="Estado" id="Estado" required>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="productImage" class="form-label">URL de la Imagen</label>
-                            <input type="file" class="form-control" name="Imagen" id="Imagen" accept="image/jpeg/png">
-                        </div>
                         <button type="submit" name="ok1" class="btn btn-primary">Agregar Producto</button>
                     </form>
                 </div>
