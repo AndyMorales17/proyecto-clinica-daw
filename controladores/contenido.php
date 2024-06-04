@@ -53,6 +53,12 @@ class contenido
         }elseif($url[0] == "cuidado_personal"){
             $pagina = "vistas/administrador/cuidado_personal.php";
         }
+        elseif($url[0] == "login"){
+            $pagina = "vistas/login.php";
+        }
+        elseif($url[0] == "registro"){
+            $pagina = "vistas/registrarte.php";
+        }
         return $pagina;
     }
 }

@@ -30,6 +30,7 @@
     <body>
         <header>
             <!-- place navbar here -->
+            
             <?php 
             require_once("menuadmin.php");
             ?>
