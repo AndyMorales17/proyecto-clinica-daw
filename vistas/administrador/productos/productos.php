@@ -36,10 +36,16 @@ if(isset($_POST['ok3'])){
                 <div class="modal-body">
                     <form id="addProductForm"  method="post" enctype="multipart/form-data">
 
-                        <div class="mb-3">
-                            <label for="id_categoria" class="form-label">Categoría</label>
-                            <input type="number" class="form-control" name="id_categoria" id="id_categoria" required>
-                        </div>
+                    <div class="mb-3">
+                     <label for="id_categoria" class="form-label">Seleccione categoria:</label>
+                     <select class="form-control" name="id_categoria">
+                     <?php foreach ($controler_producto->categoria() as $categoria) :?>
+                    <?php if ($categoria['id_categoria'] == $num) :?>
+                    <option value="<?php echo htmlspecialchars($categoria['id_categoria']);?>"><?php echo htmlspecialchars($categoria['Nombre']);?></option>
+                    <?php endif;?>
+                    <?php endforeach;?>
+                    </select>
+                     </div>   
                         <div class="mb-3">
                             <label for="Nombre" class="form-label">Nombre del Producto</label>
                             <input type="text" class="form-control" name="Nombre" id="Nombre" required>

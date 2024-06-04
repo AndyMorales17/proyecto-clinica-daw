@@ -45,10 +45,10 @@ class ProductosController extends Conexion {
 
         return $resultado;
     }
-    public function proveedor(){
+    public function categoria(){
 
-        $sql = "SELECT id_proveedor,Nombre
-        FROM Proveedor ";  
+        $sql = "SELECT id_categoria,Nombre
+        FROM Categoria ";  
         $rs = $this->ejecutarSQL($sql);
         $resultado = array();
         while ($fila = $rs->fetch_assoc()) {
