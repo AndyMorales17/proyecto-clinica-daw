@@ -26,8 +26,27 @@ class contenido
             $pagina = "vistas/administrador/contactos.php";
         }
         elseif ($url[0] == "productos") {
-            $pagina = "vistas/administrador/productos.php";
-        }elseif($url[0] == "guarda"){
+            $pagina = "vistas/administrador/productos/productos.php";
+        }
+        elseif ($url[0] == "producto2") {
+            $pagina = "vistas/administrador/productos/producto2.php";
+        }
+        elseif ($url[0] == "producto3") {
+            $pagina = "vistas/administrador/productos/producto3.php";
+        }
+        elseif ($url[0] == "producto4") {
+            $pagina = "vistas/administrador/productos/producto4.php";
+        }
+        elseif ($url[0] == "producto5") {
+            $pagina = "vistas/administrador/productos/producto5.php";
+        }
+        elseif ($url[0] == "producto6") {
+            $pagina = "vistas/administrador/productos/producto6.php";
+        }
+        elseif ($url[0] == "todos") {
+            $pagina = "vistas/administrador/productos/productotodos.php";
+        }
+        elseif($url[0] == "guarda"){
             $pagina = "vistas/administrador/guarda.php";
         }elseif ($url[0] == "proveedores") {
             $pagina = "vistas/administrador/proveedores.php";

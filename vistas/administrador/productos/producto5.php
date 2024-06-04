@@ -1,8 +1,7 @@
 <?php
 $controler_producto = new ProductosController();
+$num=5;
 if(isset($_POST['ok1'])){
-
-
     $imageFile = $_FILES['Imagen'];
     $imageData = file_get_contents($imageFile['tmp_name']);
     $imageBlob = base64_encode($imageData);
@@ -62,10 +61,6 @@ if(isset($_POST['ok3'])){
                             <input type="file" class="form-control" name="Imagen" id="Imagen" required accept="image/png/jpg">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="Estado" class="form-label">Estado</label>
-                            <input type="text" class="form-control" name="Estado" id="Estado" required>
-                        </div>
                         <button type="submit" name="ok1" class="btn btn-primary">Agregar Producto</button>
                     </form>
                 </div>
@@ -79,7 +74,7 @@ if(isset($_POST['ok3'])){
     <div class="container px-4 px-lg-5 mt-5">
         <h2 class="fw-bolder mb-4">PRODUCTOS</h2>
         <div class="row row-cols-1 row-cols-md-4 g-3">
-        <?php foreach ($controler_producto->listar() as $producto): ?>
+        <?php foreach ($controler_producto->listar($num) as $producto): ?>
     <div class="col mb-5">
         <div class="card h-100">
             <?php

@@ -94,8 +94,9 @@ document.addEventListener('DOMContentLoaded', function () {
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="categoria">CATEGORIA</a></li>
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="nosotros">NOSOTROS</a></li>
-
-                <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="proveedores">Proveedores</a></li>
+                <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="proveedores">Proveedores</a></lci>
+                <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="todos">productos</a></lci>
+                
             </ul>
 
         </div>
