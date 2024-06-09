@@ -59,7 +59,7 @@ if(isset($_POST['ok3'])){
                             <input type="number" class="form-control" name="Precio" id="Precio" required>
                         </div>
                         <div class="mb-3">
-                            <label for="productImage" class="form-label">URL de la Imagen</label>
+                            <label for="productImage" class="form-label">Imagen</label>
                             <input type="file" class="form-control" name="Imagen" id="Imagen" required accept="image/png/jpg">
                         </div>
 
@@ -111,6 +111,8 @@ if(isset($_POST['ok3'])){
                             <p><strong>Nombre del Producto:</strong> <?php echo htmlspecialchars($producto['Nombre']); ?></p>
                             <p><strong>Descripción:</strong> <?php echo htmlspecialchars($producto['Descripción']); ?></p>
                             <p><strong>Precio:</strong> $<?php echo htmlspecialchars($producto['Precio']); ?></p>
+                            <p><strong>Nombre del proveedor</strong>:<?php echo htmlspecialchars($producto['id_proveedor']); ?></p>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

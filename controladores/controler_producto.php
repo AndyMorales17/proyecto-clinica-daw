@@ -2,9 +2,10 @@
 require_once("conexion.php");
 
 class ProductosController extends Conexion {
+    
 
     public function listar($num) {
-        $sql = "SELECT id_producto, Nombre, Descripción, Precio, Imagen, Estado 
+        $sql = "SELECT id_producto, Nombre, Descripción, Precio, Imagen, Estado, id_proveedor 
         FROM Producto 
         WHERE id_categoria=$num 
         ORDER BY id_producto 
@@ -17,6 +18,9 @@ class ProductosController extends Conexion {
 
         return $resultado;
     }
+
+
+
 
     public function agregar($Producto){
 
