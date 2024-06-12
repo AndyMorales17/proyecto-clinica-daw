@@ -32,7 +32,11 @@
             <!-- place navbar here -->
             
             <?php 
-            require_once("menuadmin.php");
+
+            if (isset($_SESSION['login'])){
+                require_once("menuadmin.php");
+            }
+           
             ?>
 
         </header>
