@@ -12,13 +12,12 @@ Class Login_Controller extends Conexion {
         $pass=$this->encriptar("encriptar", $passwword);
        
 
-        $sql = "INSERT INTO users (usuario,contraseña, id_rol, fullname, direcion, telefono, correo) 
+        $sql = "INSERT INTO users (usuario,contraseña, id_rol, fullname, direccion, telefono, correo) 
         VALUE ('{$user->getUsuario()}', '$pass', '{$user->getIdRol()}', '{$user->getFullname()}', '{$user->getDireccion()}',
         '{$user->getTelefono()}', '{$user->getCorreo()}')";
 
         $rs=$this->ejecutarSQL($sql); 
     }
-
 
 }
 
