@@ -34,17 +34,19 @@
             <?php 
 
             if (isset($_SESSION['login'])){
-                require_once("menuadmin.php");
+                require_once("menuadmin/login.php");
+
+                $contenido=new contenido();
+                require_once( $contenido->mostra_archivo());
+            }else{
+                require_once("vistas/login.php");
             }
            
             ?>
 
         </header>
         <main>
-        <?php
-            $contenido=new contenido();
-            require_once( $contenido->mostra_archivo());
-        ?>
+
 
         </main>
         <footer>
