@@ -18,7 +18,23 @@ Class Login_Controller extends Conexion {
 
         $rs=$this->ejecutarSQL($sql); 
     }
-
+ 
+    public function validate($username, $password) {
+        $sql = "SELECT * FROM users WHERE correo = '$username'";
+        $result = $this->ejecutarSQL($sql);
+    
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            $pass=$user['contraseña'];
+            $stored_password = $this->encriptar('desencriptar',$pass);
+            if ($password === $stored_password) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
+
 ?>
+

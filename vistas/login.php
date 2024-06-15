@@ -1,39 +1,38 @@
 <?php
-
-$LoginController = new Login_Controller;
-
+  session_start();
 
 
-if (isset($_POST['login'])){
+$LoginController = new Login_Controller();
+
+if (isset($_POST['login'])) {
     $username = $_POST['loginEmail'];
     $password = $_POST['loginpassword'];
 
-   
+    if ($LoginController->validate($username, $password)) {
+        
+        echo "Credenciales.";
+        exit();
+    } else {
+        echo "Credenciales de inicio de sesión inválidas.";
+    }
 }
 
-if (isset($_POST['registro'])){
-   $username = $_POST['usuario'];
-   $password = $_POST['password'];
-   $nombre = $_POST['nombre'];
-   $direccion = $_POST['direccion'];
-   $telefono = $_POST['telefono'];
-   $correo = $_POST['correo'];    
+if (isset($_POST['registro'])) {
+    $username = $_POST['usuario'];
+    $password = $_POST['password'];
+    $nombre = $_POST['nombre'];
+    $direccion = $_POST['direccion'];
+    $telefono = $_POST['telefono'];
+    $correo = $_POST['correo'];
 
-   
-   $user = new Users ("", $_POST['usuario'], $_POST["password"],2,$_POST['nombre'],$_POST['direccion'],$_POST['telefono'], $_POST["correo"]);
-   $LoginController->Create($user);
-
+    $user = new Users("", $username, $password, 2, $nombre, $direccion, $telefono, $correo);
+    $LoginController->Create($user);
+    echo "Usuario registrado exitosamente.";
 }
-
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
     <style>
         .bg-image-vertical {
             position: center;
@@ -148,4 +147,4 @@ if (isset($_POST['registro'])){
 </script>
 
 </body>
-</html>
+
