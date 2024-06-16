@@ -125,10 +125,12 @@ if(isset($_POST['ok3'])){
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p><strong>Nombre del Producto:</strong> <?php echo htmlspecialchars($producto['Nombre']); ?></p>
+                           <p><strong>Nombre del Producto:</strong> <?php echo htmlspecialchars($producto['Nombre']); ?></p>
                             <p><strong>Descripción:</strong> <?php echo htmlspecialchars($producto['Descripción']); ?></p>
                             <p><strong>Precio:</strong> $<?php echo htmlspecialchars($producto['Precio']); ?></p>
-                        </div>
+                            <p><strong>Nombre del proveedor:</strong> <?php echo htmlspecialchars($producto['ProveedorNombre']); ?></p>
+                            <p><strong>Categoria:</strong> <?php echo htmlspecialchars($producto['CategoriaNombre']); ?></p>
+                       </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <form method=post><input type='hidden' value="<?php echo $producto['id_producto'];?>" name='id'>
@@ -138,7 +140,8 @@ if(isset($_POST['ok3'])){
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+            
     </div>
 <?php endforeach; ?>
         </div>

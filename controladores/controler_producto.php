@@ -5,12 +5,27 @@ class ProductosController extends Conexion {
     
 
     public function listar($num) {
-        $sql = "SELECT id_producto, Nombre, Descripción, Precio, Imagen, Estado, id_proveedor,id_categoria 
-        FROM Producto 
-        WHERE id_categoria=$num 
-        ORDER BY id_producto 
-        ASC";  
-        $rs = $this->ejecutarSQL($sql);
+        $sql = "SELECT 
+            p.id_producto, 
+            p.Nombre, 
+            p.Descripción, 
+            p.Precio, 
+            p.Imagen, 
+            p.Estado,
+            pr.Nombre AS ProveedorNombre,
+            c.Nombre AS CategoriaNombre
+        FROM 
+            Producto p
+        INNER JOIN 
+            Proveedor pr ON p.id_proveedor = pr.id_proveedor
+        INNER JOIN 
+            Categoria c ON p.id_categoria = c.id_categoria
+        WHERE 
+            p.id_categoria = $num
+        ORDER BY 
+            p.id_producto ASC;
+        ";  
+                $rs = $this->ejecutarSQL($sql);
         $resultado = array();
         while ($fila = $rs->fetch_assoc()) {
             $resultado[] = $fila;
@@ -50,8 +65,13 @@ $rs = $this->ejecutarSQL($sql);
     }
     
     public function todos() {
-        $sql = "SELECT id_producto, Nombre, Descripción, Precio, Imagen, Estado,id_proveedor,id_categoria 
-        FROM Producto ";  
+        $sql = "SELECT p.id_producto, p.Nombre, p.Descripción, p.Precio, p.Imagen, p.Estado,p.id_proveedor,
+    p.id_categoria,
+	c.Nombre AS CategoriaNombre, pr.Nombre AS ProveedorNombre
+	FROM Producto p
+	INNER JOIN Categoria c ON p.id_categoria = c.id_categoria
+	INNER JOIN Proveedor pr ON p.id_proveedor = pr.id_proveedor; ";
+
         $rs = $this->ejecutarSQL($sql);
         $resultado = array();
         while ($fila = $rs->fetch_assoc()) {
@@ -72,6 +92,25 @@ $rs = $this->ejecutarSQL($sql);
 
         return $resultado;
 
+    }
+
+    public function actualizar($Producto) {
+        // Preparar la consulta SQL para actualizar el producto
+        $sql = "UPDATE Producto SET 
+                    id_categoria = '{$Producto->getIdCategoria()}', 
+                    id_proveedor = '{$Producto->getIdProveedor()}',
+                    Nombre = '{$Producto->getNombre()}', 
+                    Descripción = '{$Producto->getDescripcion()}', 
+                    Precio = '{$Producto->getPrecio()}' ";
+        
+        // Si se ha proporcionado una nueva imagen, agregarla a la consulta
+        if ($Producto->getImagen() !== null) {
+            $sql .= ", Imagen = '{$Producto->getImagen()}'";
+        }   
+        $sql .= " WHERE id_producto = '{$Producto->getIdProducto()}'";  
+        // Ejecutar la consulta y manejar posibles errores
+        $rs = $this->ejecutarSQL($sql);
+        
     }
 
 
