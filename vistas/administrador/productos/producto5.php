@@ -5,7 +5,8 @@ if(isset($_POST['ok1'])){
     $imageFile = $_FILES['Imagen'];
     $imageData = file_get_contents($imageFile['tmp_name']);
     $imageBlob = base64_encode($imageData);
-    $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $imageBlob,"");
+    $Producto = new Producto ("",$_POST['id_categoria'],$_POST['id_proveedor'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $imageBlob,"");
+
     $controler_producto->agregar($Producto);
 }
 ?>
@@ -41,7 +42,7 @@ if(isset($_POST['ok3'])){
                     <form id="addProductForm"  method="post" enctype="multipart/form-data">
 
                     <div class="mb-3">
-                     <label for="id_categoria" class="form-label">Seleccione categoria:</label>
+                     <label for="id_categoria" class="form-label">Categoria:</label>
                      <select class="form-control" name="id_categoria">
                     
                      <?php foreach ($controler_producto->categoria() as $categoria) :?>
@@ -51,6 +52,16 @@ if(isset($_POST['ok3'])){
                     <?php endforeach;?>
                     </select>
                      </div>   
+
+                     <div class="mb-3">
+                     <label for="id_proveedor" class="form-label">Seleccione proveedor:</label>
+                     <select class="form-control" name="id_proveedor">
+                     <option value="#">Seleccione un proveedor</option>
+                     <?php foreach ($controler_producto->proveedor() as $proveedor) :?> 
+                     <option value="<?php echo htmlspecialchars($proveedor['id_proveedor']); ?>"><?php echo htmlspecialchars($proveedor['Nombre']); ?></option>
+                     <?php endforeach;?>
+                    </select>
+                     </div>     
                         <div class="mb-3">
                             <label for="Nombre" class="form-label">Nombre del Producto</label>
                             <input type="text" class="form-control" name="Nombre" id="Nombre" required>

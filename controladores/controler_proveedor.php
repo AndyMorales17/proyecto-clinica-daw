@@ -35,7 +35,6 @@ class controler_proveedor extends Conexion {
             $sql = "UPDATE Proveedor SET Nombre = '$nombre', Dirección = '$direccion', Teléfono = '$telefono'
                     WHERE id_proveedor = $id_proveedor";
             $rs=$this->ejecutarSQL($sql);
-    
     }
 
     

@@ -4,15 +4,17 @@ class Producto {
 
     private $id_producto;
     private $id_categoria;
+    private $id_proveedor;
     private $Nombre;
     private $Descripción;
     private $Precio;
     private $Imagen;
     private $Estado;
 
-    public function __construct($id_prod = "", $id_cat = "", $Nom = "", $Des = "", $Pre = "", $Img = "", $Esta = "") {
+    public function __construct($id_prod = "", $id_cat = "", $id_prov = "", $Nom = "", $Des = "", $Pre = "", $Img = "", $Esta = "") {
         $this->id_producto = $id_prod;
         $this->id_categoria = $id_cat;
+        $this->id_proveedor = $id_prov;
         $this->Nombre = $Nom;
         $this->Descripción = $Des;
         $this->Precio = $Pre;
@@ -20,13 +22,17 @@ class Producto {
         $this->Estado = $Esta;
     }
 
-    // getters
+    // Getters
     public function getIdProducto() {
         return $this->id_producto;
     }
 
     public function getIdCategoria() {
         return $this->id_categoria;
+    }
+
+    public function getIdProveedor() {
+        return $this->id_proveedor;
     }
 
     public function getNombre() {
@@ -49,13 +55,17 @@ class Producto {
         return $this->Estado;
     }
 
-    // setters
+    // Setters
     public function setIdProducto($id_prod) {
         $this->id_producto = $id_prod;
     }
 
     public function setIdCategoria($id_cat) {
         $this->id_categoria = $id_cat;
+    }
+
+    public function setIdProveedor($id_prov) {
+        $this->id_proveedor = $id_prov;
     }
 
     public function setNombre($Nom) {

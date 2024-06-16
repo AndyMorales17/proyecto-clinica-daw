@@ -5,7 +5,8 @@ if(isset($_POST['ok1'])){
     $imageFile = $_FILES['Imagen'];
     $imageData = file_get_contents($imageFile['tmp_name']);
     $imageBlob = base64_encode($imageData);
-    $Producto = new Producto ("",$_POST['id_categoria'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $imageBlob,"");
+    $Producto = new Producto ("",$_POST['id_categoria'],$_POST['id_proveedor'],$_POST['Nombre'], $_POST['Descripción'], $_POST['Precio'], $imageBlob,"");
+    
     $controler_producto->agregar($Producto);
 }
 
@@ -46,6 +47,17 @@ if(isset($_POST['ok3'])){
                     <?php endforeach;?>
                     </select>
                      </div>   
+
+                     <div class="mb-3">
+                     <label for="id_proveedor" class="form-label">Seleccione categoria:</label>
+                     <select class="form-control" name="id_proveedor">
+                     <option value="#">Seleccione un proveedor</option>
+                     <?php foreach ($controler_producto->proveedor() as $proveedor) :?> 
+                     <option value="<?php echo htmlspecialchars($proveedor['id_proveedor']); ?>"><?php echo htmlspecialchars($proveedor['Nombre']); ?></option>
+                     <?php endforeach;?>
+                    </select>
+                     </div>     
+
                         <div class="mb-3">
                             <label for="Nombre" class="form-label">Nombre del Producto</label>
                             <input type="text" class="form-control" name="Nombre" id="Nombre" required>
@@ -112,7 +124,7 @@ if(isset($_POST['ok3'])){
                             <p><strong>Descripción:</strong> <?php echo htmlspecialchars($producto['Descripción']); ?></p>
                             <p><strong>Precio:</strong> $<?php echo htmlspecialchars($producto['Precio']); ?></p>
                             <p><strong>Nombre del proveedor</strong>:<?php echo htmlspecialchars($producto['id_proveedor']); ?></p>
-
+                            <p><strong>Categoria</strong>:<?php echo htmlspecialchars($producto['id_categoria']); ?></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
