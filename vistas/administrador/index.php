@@ -16,12 +16,13 @@
     <?php 
       
       if (isset($_SESSION['login']) && $_SESSION['login']) {
+        require_once("vistas/login.php");
+    } else {
+        
         require_once("vistas/administrador/menuadmin.php");
 
         $contenido = new contenido();
         require_once($contenido->mostra_archivo());
-    } else {
-        require_once("vistas/login.php");
     }
     ?>
 </header>
