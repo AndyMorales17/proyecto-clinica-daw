@@ -1,5 +1,6 @@
 <?php
 $controler_producto = new ProductosController();
+$ControllerStock = new ControllerStock();
 $num=2;
 if(isset($_POST['ok1'])){
     $imageFile = $_FILES['Imagen'];
@@ -112,7 +113,17 @@ if (isset($_POST['modificar'])) {
     <div class="container px-4 px-lg-5 mt-5">
         <h2 class="fw-bolder mb-4">PRODUCTOS</h2>
         <div class="row row-cols-1 row-cols-md-4 g-3">
-        <?php foreach ($controler_producto->listar($num) as $producto): ?>
+        <?php foreach ($controler_producto->listar($num) as $producto): 
+                    $id_producto = $producto['id_producto'];
+                    $cantidad_stock = 0;
+                    $estado = 0;
+                    $stock_existe = $ControllerStock->existeStock($id_producto);
+            
+                    if (!$stock_existe) {
+                        $Stock = new Stock("", $id_producto, $cantidad_stock, $estado);
+                        $ControllerStock->agregar($Stock);
+                    }
+            ?>
     <div class="col mb-5">
         <div class="card h-100">
             <?php
