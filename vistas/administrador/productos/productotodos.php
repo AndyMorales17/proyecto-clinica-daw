@@ -24,17 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['descripcion'];
         $precio = $_POST['precio'];
-        $imageBlob = null;
 
-        // Manejar la imagen si se ha subido una nueva
         if (isset($_FILES['Imagen']) && $_FILES['Imagen']['error'] === UPLOAD_ERR_OK) {
             $imageFile = $_FILES['Imagen'];
             $imageData = file_get_contents($imageFile['tmp_name']);
             $imageBlob = base64_encode($imageData);
+        } else {
+            $imageBlob = null;
         }
-
+    
         $producto = new Producto($id_producto, $id_categoria, $id_proveedor, $nombre, $descripcion, $precio, $imageBlob, '');    
         $controler_producto->actualizar($producto);
+      
     }
 }
 
@@ -200,9 +201,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="edit-imagen-<?php echo $producto['id_producto']; ?>" class="form-label">Imagen del Producto</label>
-                                    <input type="file" class="form-control" id="edit-imagen-<?php echo $producto['id_producto']; ?>" name="imagen" accept="image/*">
-                                    <small class="form-text text-muted">Subir una nueva imagen solo si deseas cambiarla.</small>
+                                <label for="edit-imagen-<?php echo $producto['id_producto']; ?>" class="form-label">Imagen del Producto</label>
+                                <input type="file" class="form-control" id="edit-imagen-<?php echo $producto['id_producto']; ?>" name="Imagen" accept="image/*">
+                                <small class="form-text text-muted">Subir una nueva imagen solo si deseas cambiarla.</small>
                                 </div>
                             </div>
                             <div class="modal-footer">

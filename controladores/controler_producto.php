@@ -12,6 +12,8 @@ class ProductosController extends Conexion {
             p.Precio, 
             p.Imagen, 
             p.Estado,
+            p.id_proveedor,
+            p.id_categoria,
             pr.Nombre AS ProveedorNombre,
             c.Nombre AS CategoriaNombre
         FROM 
@@ -97,19 +99,24 @@ $rs = $this->ejecutarSQL($sql);
     public function actualizar($Producto) {
         // Preparar la consulta SQL para actualizar el producto
         $sql = "UPDATE Producto SET 
-                    id_categoria = '{$Producto->getIdCategoria()}', 
-                    id_proveedor = '{$Producto->getIdProveedor()}',
-                    Nombre = '{$Producto->getNombre()}', 
-                    Descripción = '{$Producto->getDescripcion()}', 
-                    Precio = '{$Producto->getPrecio()}' ";
-        
+        id_categoria = '{$Producto->getIdCategoria()}', 
+        id_proveedor = '{$Producto->getIdProveedor()}',
+        Nombre = '{$Producto->getNombre()}', 
+        Descripción = '{$Producto->getDescripcion()}', 
+        Precio = '{$Producto->getPrecio()}'";
+
         // Si se ha proporcionado una nueva imagen, agregarla a la consulta
         if ($Producto->getImagen() !== null) {
-            $sql .= ", Imagen = '{$Producto->getImagen()}'";
-        }   
-        $sql .= " WHERE id_producto = '{$Producto->getIdProducto()}'";  
-        // Ejecutar la consulta y manejar posibles errores
+        $imagenBase64 = $Producto->getImagen();
+        $sql .= ", Imagen = '{$imagenBase64}'";
+        }
+        
+        // Finalizar la consulta con la condición WHERE
+        $sql .= " WHERE id_producto = '{$Producto->getIdProducto()}'";
+        
+        // Ejecutar la consulta en la base de datos
         $rs = $this->ejecutarSQL($sql);
+
         
     }
 
