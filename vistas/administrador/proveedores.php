@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
                                     <td>
                                         <form method="post" style="display:inline-block;">
                                             <input type="hidden" value="<?php echo htmlspecialchars($proveedor['id_proveedor']); ?>" name="id">
-                                            <button name="eliminar" class="btn btn-outline-danger">Eliminar</button>
+                                        <button name="eliminar" class="btn btn-outline-danger">Eliminar</button>
                                         </form>
                                         <button class="btn btn-outline-info" onclick="openEditModal('<?php echo htmlspecialchars($proveedor['id_proveedor']); ?>', '<?php echo htmlspecialchars($proveedor['Nombre']); ?>', '<?php echo htmlspecialchars($proveedor['Dirección']); ?>', '<?php echo htmlspecialchars($proveedor['Teléfono']); ?>')">Editar</button>
                                     </td>

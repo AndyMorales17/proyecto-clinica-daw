@@ -1,5 +1,5 @@
 <?php
-
+$ControllerStock = new ControllerStock();
 $controler_producto = new ProductosController();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
             Agregar Producto
         </button>
+        <a href="categoria" class="btn btn-dark">Regresar a categoria</a>
     </div>
 
     <!-- Modal para agregar producto -->
@@ -107,7 +108,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container px-4 px-lg-5 mt-5">
         <h2 class="fw-bolder mb-4">PRODUCTOS</h2>
         <div class="row row-cols-1 row-cols-md-4 g-3">
-            <?php foreach ($controler_producto->todos() as $producto): ?>
+            <?php foreach ($controler_producto->todos() as $producto): 
+        
+        $id_producto = $producto['id_producto'];
+        $cantidad_stock = 0;
+        $estado = 0;
+        $stock_existe = $ControllerStock->existeStock($id_producto);
+
+        if (!$stock_existe) {
+            $Stock = new Stock("", $id_producto, $cantidad_stock, $estado);
+            $ControllerStock->agregar($Stock);
+        }
+?>
+
             <div class="col mb-5">
                 <div class="card h-100">
                     <?php

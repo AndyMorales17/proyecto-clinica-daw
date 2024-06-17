@@ -142,6 +142,26 @@ $categorias6 = $controlador->listar6();
                     </div>
                 </div>
                 <?php endforeach; ?>
+                
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto">
+
+                        <a href="todos">
+
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="todo.png" alt="..." style="height: 300px; width: 100%; object-fit: cover;"/>
+                        </a>
+                        <div class="portfolio-details mt-2">
+                            <h3>Todos los productos</h3>
+                            <p>Se le presentarán todos los productos de consumo disponibles en nuestra farmacia. Desde medicamentos y suplementos hasta productos de cuidado personal y bienestar.</p>
+                        </div>
+                    </div>
+                </div>
+               
             </div>
         </div>
     </section>
