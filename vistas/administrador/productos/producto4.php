@@ -47,6 +47,7 @@ if (isset($_POST['modificar'])) {
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
             Agregar Producto
         </button>
+        <a href="categoria" class="btn btn-dark">Regresar a categoria</a>
     </div>
 
     <!-- Modal para agregar producto -->

@@ -16,6 +16,9 @@ require_once("Modelo/Categoria.php");
 require_once("Modelo/Users.php");
 require_once("controladores/login_controller.php");
 
+require_once("Modelo/Stock.php");
+require_once("controladores/controler_stock.php");
+
 require_once("vistas/administrador/index.php");
 
 
