@@ -19,30 +19,30 @@ Class Login_Controller extends Conexion {
         $rs=$this->ejecutarSQL($sql); 
     }
 
-    public function login($usuario){
-        $sql = "SELECT * FROM Users WHERE correo = '".$usuario->getCorreo()."' AND contraseña = '".$usuario->getContraseña();."'";
-       
-        
-        //$sql = "SELECT * FROM Users WHERE usuario='".$_POST['usuario']."' AND contraseña='".$_POST['contraseña'];
-        //$rs=$this->ejecutarSQL($sql);
-
-
-    }
+   // public function login($usuario){
+   //     $sql = "SELECT * FROM Users WHERE correo = '".$usuario->getCorreo()."' AND contraseña = '".$usuario->getContraseña()."';";
+   //     $rs=$this->ejecutarSQL($sql);
+   //     $resultado=array();
+   //     while($fila=$rs->fetch_assoc()){
+   //         $resultado[]=new Users("","",$fila["contraseña"],"","","","",$fila["correo"]);
+   //     }
+   //     return $resultado;
+   // }
  
-    //public function validate($username, $password) {
-    //    $sql = "SELECT * FROM users WHERE correo = '$username'";
-    //    $result = $this->ejecutarSQL($sql);
-    //
-    //    if ($result->num_rows > 0) {
-    //        $user = $result->fetch_assoc();
-    //        $pass=$user['contraseña'];
-    //        $stored_password = $this->encriptar('desencriptar',$pass);
-    //        if ($password === $stored_password) {
-    //            return true;
-    //        }
-    //    }
-    //    return false;
-    //}
+    public function validate($username, $password) {
+        $sql = "SELECT * FROM users WHERE correo = '".$username->getCorreo()."'";
+        $result = $this->ejecutarSQL($sql);
+    
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            $pass=$user['contraseña'];
+            $stored_password = $this->encriptar('desencriptar',$pass);
+            if ($password == $stored_password) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 

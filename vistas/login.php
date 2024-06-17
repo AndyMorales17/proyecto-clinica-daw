@@ -1,43 +1,28 @@
 <?php
 
 
-$usuario = new Users;
+$usuario = new Users("","","","","","","","",);
 
-if(isset($_POST['login'])){
-  $usuario->setCorreo($_POST['loginEmail']);
-  $usuario->setContraseña($_POST['loginpassword']);
-  $login_Controller = new Login_Controller;
-  $login_Controller->login($usuario);
+if(isset($_POST["login"])){
+  $usuario->setCorreo($_POST["loginEmail"]);
+  $usuario->setContraseña($_POST["loginpassword"]);
+  $login_Controller = new Login_Controller();
+  var_dump($login_Controller->validate($usuario, $usuario));
 }
 
-//if (isset($_POST['login'])) {
-//    $username = $_POST['loginEmail'];
-//    $password = $_POST['loginpassword'];
-//    $LoginController = new Login_Controller();
-//
-//    if ($LoginController->validate($username, $password)) {
-//        echo "<script> alert('Las Credenciales fueron ingresadas exitosamente');</script>";
-//        
-//        exit();
-//    } else {
-//        echo "<script> alert('Credenciales de inicio de sesión inválidas.');</script>";
-//    }
-//
-//    var_dump($LoginController->validate($username, $password));
-//}
-//
-//if (isset($_POST['registro'])) {
-//    $username = $_POST['usuario'];
-//    $password = $_POST['password'];
-//    $nombre = $_POST['nombre'];
-//    $direccion = $_POST['direccion'];
-//    $telefono = $_POST['telefono'];
-//    $correo = $_POST['correo'];
-//
-//    $user = new Users("", $username, $password, 2, $nombre, $direccion, $telefono, $correo);
-//    $LoginController->Create($user);
-//    echo "<script> alert('Usuario registrado exitosamente.');</script>";
-//}
+if (isset($_POST['registro'])) {
+    $username = $_POST['usuario'];
+    $password = $_POST['password'];
+    $nombre = $_POST['nombre'];
+    $direccion = $_POST['direccion'];
+    $telefono = $_POST['telefono'];
+    $correo = $_POST['correo'];
+
+    $user = new Users("", $username, $password, 2, $nombre, $direccion, $telefono, $correo);
+    $LoginController=new Login_Controller();
+    $LoginController->Create($user);
+    echo "<script> alert('Usuario registrado exitosamente.');</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
