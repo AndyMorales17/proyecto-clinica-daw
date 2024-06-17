@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 if (!defined("URL")) define("URL", "http://localhost/proyecto-clinica-daw/");
 
 require_once("controladores/contenido.php");
@@ -20,6 +23,13 @@ require_once("Modelo/Stock.php");
 require_once("controladores/controler_stock.php");
 
 require_once("vistas/administrador/index.php");
+
+
+if(isset($_SESSION['Cliente'])){
+
+}else{
+    require_once("vistas/administrador.php");
+}
 
 
 ?>

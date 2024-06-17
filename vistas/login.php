@@ -1,33 +1,43 @@
 <?php
-session_start();
 
-$LoginController = new Login_Controller();
 
-if (isset($_POST['login'])) {
-    $username = $_POST['loginEmail'];
-    $password = $_POST['loginpassword'];
+$usuario = new Users;
 
-    if ($LoginController->validate($username, $password)) {
-        echo "<script> alert('Las Credenciales fueron ingresadas exitosamente');</script>";
-        
-        exit();
-    } else {
-        echo "<script> alert('Credenciales de inicio de sesión inválidas.');</script>";
-    }
+if(isset($_POST['login'])){
+  $usuario->setCorreo($_POST['loginEmail']);
+  $usuario->setContraseña($_POST['loginpassword']);
+  $login_Controller = new Login_Controller;
+  $login_Controller->login($usuario);
 }
 
-if (isset($_POST['registro'])) {
-    $username = $_POST['usuario'];
-    $password = $_POST['password'];
-    $nombre = $_POST['nombre'];
-    $direccion = $_POST['direccion'];
-    $telefono = $_POST['telefono'];
-    $correo = $_POST['correo'];
-
-    $user = new Users("", $username, $password, 2, $nombre, $direccion, $telefono, $correo);
-    $LoginController->Create($user);
-    echo "<script> alert('Usuario registrado exitosamente.');</script>";
-}
+//if (isset($_POST['login'])) {
+//    $username = $_POST['loginEmail'];
+//    $password = $_POST['loginpassword'];
+//    $LoginController = new Login_Controller();
+//
+//    if ($LoginController->validate($username, $password)) {
+//        echo "<script> alert('Las Credenciales fueron ingresadas exitosamente');</script>";
+//        
+//        exit();
+//    } else {
+//        echo "<script> alert('Credenciales de inicio de sesión inválidas.');</script>";
+//    }
+//
+//    var_dump($LoginController->validate($username, $password));
+//}
+//
+//if (isset($_POST['registro'])) {
+//    $username = $_POST['usuario'];
+//    $password = $_POST['password'];
+//    $nombre = $_POST['nombre'];
+//    $direccion = $_POST['direccion'];
+//    $telefono = $_POST['telefono'];
+//    $correo = $_POST['correo'];
+//
+//    $user = new Users("", $username, $password, 2, $nombre, $direccion, $telefono, $correo);
+//    $LoginController->Create($user);
+//    echo "<script> alert('Usuario registrado exitosamente.');</script>";
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +81,7 @@ if (isset($_POST['registro'])) {
               <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Ingresar Credenciales</h3>
               <div data-mdb-input-init class="form-outline mb-4">
                 <label class="form-label" for="loginEmail">Correo</label>
-                <input type="email" name="loginEmail" id="loginEmail" class="form-control form-control-lg" />
+                <input type="text" name="loginEmail" id="loginEmail" class="form-control form-control-lg" />
               </div>
               <div data-mdb-input-init class="form-outline mb-4">
                 <label class="form-label" for="loginPassword">Contraseña</label>
