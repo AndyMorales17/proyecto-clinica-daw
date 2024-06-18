@@ -6,9 +6,6 @@ $login_Controller = new Login_Controller();
 if (isset($_POST["login"])) {
   $correo = $_POST["loginEmail"];
   $contraseña = $_POST["loginpassword"];
-  
-  echo "<script>alert('El correo es $correo y la contraseña $contraseña.');</script>";
-
   $login_Controller->handleLogin($correo, $contraseña);
 
 }

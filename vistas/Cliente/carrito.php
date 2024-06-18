@@ -1,42 +1,188 @@
 <?php
-//session_start(); // Iniciar la sesión si no está iniciada
-
-
 // Inicializar el controlador de productos
 $controler_producto = new ProductosController();
 $productos = $controler_producto->todos();
 
-// Inicializar el carrito si no existe
-if (!isset($_SESSION['carrito'])) {
-    $_SESSION['carrito'] = array();
-}
-
 $total = 0;
+$productos_carrito = [];
+
+// Verificar si se ha enviado una solicitud para actualizar o quitar productos del carrito
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['actualizar_carrito'])) {
+        foreach ($_POST['cantidad'] as $id => $cantidad) {
+            $_SESSION['carrito'][$id] = $cantidad;
+        }
+    } elseif (isset($_POST['eliminar_producto'])) {
+        $id_producto = $_POST['eliminar_producto'];
+        unset($_SESSION['carrito'][$id_producto]);
+    
+        // Recalcular el total y obtener los productos actualizados en el carrito
+        foreach ($_SESSION['carrito'] as $id => $cantidad) {
+            foreach ($productos as $producto) {
+                if ($producto['id_producto'] == $id) {
+                    $total += $producto['Precio'] * $cantidad;
+                    $productos_carrito[] = [
+                        'id_producto' => $producto['id_producto'],
+                        'Nombre' => $producto['Nombre'],
+                        'Precio' => $producto['Precio'],
+                        'Cantidad' => $cantidad,
+                        'Subtotal' => $producto['Precio'] * $cantidad
+                    ];
+                }
+            }
+        }
+    
+        // Enviar una respuesta JSON con los productos actualizados y el total
+        header('Content-Type: application/json');
+        echo json_encode(['total' => number_format($total, 2), 'productos' => $productos_carrito]);
+        exit; // Terminar la ejecución aquí después de enviar la respuesta JSON
+    }
+    
+}
+     
+
+
+// Recalcular el total (en caso de que no se haya eliminado ningún producto)
+foreach ($_SESSION['carrito'] as $id => $cantidad) {
+    foreach ($productos as $producto) {
+        if ($producto['id_producto'] == $id) {
+            $total += $producto['Precio'] * $cantidad;
+        }
+    }
+}
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="path/to/bootstrap.css"> <!-- Asegúrate de ajustar el path -->
-</head>
-<body>
+<section class="py-5 bg-light mt-5 mb-0">
     <div class="container px-4 px-lg-5 mt-5">
         <h1>Carrito de Compras</h1>
-        <ul class="list-group">
-            <?php foreach ($_SESSION['carrito'] as $id => $cantidad) : ?>
-                <?php if (isset($productos[$id])) : ?>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <?php echo htmlspecialchars($productos[$id]['Nombre']); ?>
-                        <span class="badge bg-primary rounded-pill"><?php echo $cantidad; ?></span>
-                        <span>$<?php echo number_format($productos[$id]['Precio'] * $cantidad, 2); ?></span>
-                    </li>
-                    <?php $total += $productos[$id]['Precio'] * $cantidad; ?>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </ul>
-        <p class="mt-3">Total: $<?php echo number_format($total, 2); ?></p>
-        <a href="todos2" class="btn btn-primary">Continuar comprando</a>
+        <div id="carrito-lista">
+            <form id="carrito-form" method="post">
+                <table id="carrito-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    <?php foreach ($_SESSION['carrito'] as $id => $cantidad) : ?>
+        <?php foreach ($productos as $producto): ?>
+            <?php if ($producto['id_producto'] == $id) : ?>
+                <tr>
+                    <td>
+                        <?php echo htmlspecialchars($producto['Nombre']); ?>
+                        <input type="hidden" name="producto_id[]" value="<?php echo $producto['id_producto']; ?>">
+                    </td>
+                    <td>
+                        <input type="number" name="cantidad[<?php echo $producto['id_producto']; ?>]" class="form-control cantidad" value="<?php echo $cantidad; ?>" min="1" onchange="actualizarCarrito()">
+                    </td>
+                    <td>$<?php echo number_format($producto['Precio'], 2); ?></td>
+                    <td>$<span class="subtotal"><?php echo number_format($producto['Precio'] * $cantidad, 2); ?></span></td>
+                    <td>
+                        <button type="submit" class="btn btn-danger eliminar-producto" data-producto-id="<?php echo $producto['id_producto']; ?>">Eliminar</button>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+</tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-right"><strong>Total:</strong></td>
+                            <td>$<span id="total-carrito"><?php echo number_format($total, 2); ?></span></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <button type="submit" name="actualizar_carrito" class="btn btn-primary">Actualizar Carrito</button>
+                <a href="todos2" class="btn btn-primary">Continuar comprando</a>
+            </form>
+        </div>
     </div>
-</body>
-</html>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btnEliminar = document.querySelectorAll('.eliminar-producto');
+
+        btnEliminar.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var productoId = this.getAttribute('data-producto-id');
+                eliminarProducto(productoId);
+            });
+        });
+
+        function eliminarProducto(idProducto) {
+    var formData = new FormData();
+    formData.append('eliminar_producto', idProducto);
+
+    fetch('', {
+        method: 'POST',
+        body: formData
+    })
+    .then(function(response) {
+        if (response.ok) {
+            return response.json(); // Parsear la respuesta JSON
+        } else {
+            throw new Error('Error al eliminar producto del carrito');
+        }
+    })
+    .then(function(data) {
+        // Actualizar la tabla del carrito con los productos restantes y el nuevo total
+        actualizarTablaCarrito(data);
+        // Recargar la página después de un breve retraso (opcional)
+        setTimeout(function() {
+            location.reload();
+        }, 1000); // Recargar la página después de 1 segundo (1000 milisegundos)
+    })
+    .catch(function(error) {
+        console.error('Error en la solicitud fetch:', error);
+    });
+}
+
+
+        function actualizarTablaCarrito(data) {
+            var tbody = document.querySelector('#carrito-table tbody');
+            var totalElement = document.getElementById('total-carrito');
+
+            // Limpiar la tabla actual
+            tbody.innerHTML = '';
+
+            // Reconstruir la tabla con los productos actualizados
+            data.productos.forEach(function(producto) {
+                var row = '<tr>' +
+                    '<td>' + htmlspecialchars(producto.Nombre) + '<input type="hidden" name="producto_id[]" value="' + producto.id_producto + '"></td>' +
+                    '<td><input type="number" name="cantidad[' + producto.id_producto + ']" class="form-control cantidad" value="' + producto.Cantidad + '" min="1" onchange="actualizarCarrito()"></td>' +
+                    '<td>$' + parseFloat(producto.Precio).toFixed(2) + '</td>' +
+                    '<td>$<span class="subtotal">' + parseFloat(producto.Subtotal).toFixed(2) + '</span></td>' +
+                    '<td><button type="button" class="btn btn-danger eliminar-producto" data-producto-id="' + producto.id_producto + '">Eliminar</button></td>' +
+                    '</tr>';
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+
+            // Actualizar el total
+            totalElement.textContent = '$' + data.total;
+        }
+
+        function actualizarCarrito() {
+            var listaProductos = document.querySelectorAll('#carrito-lista tbody tr');
+            var total = 0;
+
+            listaProductos.forEach(function(producto) {
+                var cantidad = parseInt(producto.querySelector('.cantidad').value);
+                var precioUnitario = parseFloat(producto.querySelector('.subtotal').textContent.replace('$', '')) / cantidad;
+                var subtotal = cantidad * precioUnitario;
+                producto.querySelector('.subtotal').textContent = subtotal.toFixed(2);
+                total += subtotal;
+            });
+
+            document.getElementById('total-carrito').textContent = total.toFixed(2);
+        }
+    });
+</script>
+
+
+
