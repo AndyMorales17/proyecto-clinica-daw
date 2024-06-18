@@ -61,7 +61,7 @@ class contenido
             $pagina = "vistas/Cliente/categoria.php";
         }elseif ($url[0] == "todos2") {
             $pagina = "vistas/Cliente/productotodos.php";
-        }elseif($url[0] == "car"){
+        }elseif($url[0] == "carrito"){
                 $pagina = "vistas/Cliente/carrito.php";
         }
         return $pagina;

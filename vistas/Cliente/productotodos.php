@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 $controler_producto = new ProductosController();
 
@@ -8,14 +8,17 @@ if (!isset($_SESSION['carrito'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['agregarcar'])) {
-    $producto_id = $_POST['id_producto'];
+    $producto_id = $_POST['producto_id'];
     if (!isset($_SESSION['carrito'][$producto_id])) {
         $_SESSION['carrito'][$producto_id] = 0;
     }
     $_SESSION['carrito'][$producto_id]++;
-    header('Location: carrito.php');
+    //header('Location: carrito.php');
     exit();
 }
+
+
+
 ?>
 
 <!-- HTML para mostrar los productos, agregar y editar productos -->
@@ -43,12 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['agregarcar'])) {
                             </button>
                         </div>
                         <div class="text-center mb-3">
-                            <form action="carrito.php" method="post">
+                            <form action="carrito" method="post">
                                 <input type="hidden" name="producto_id" value="<?php echo $producto['id_producto']; ?>">
-                                <button type="submit" class="btn btn-info" name="agregarcar">
-                                    Agregar al Carrito
-                                </button>
-                            </form>
+                                <input type="hidden" name="producto_id" value="<?php echo $producto['Precio']; ?>">
+                                <button  type="submit" class="btn btn-info" name="agregarcar">Agregar al Carrito</button>
                         </div>
                         <div class="modal fade" id="productModal-<?php echo $producto['id_producto']; ?>" tabindex="-1" aria-labelledby="productModalLabel-<?php echo $producto['id_producto']; ?>" aria-hidden="true">
                             <div class="modal-dialog">
@@ -70,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['agregarcar'])) {
                                 </div>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
             <?php endforeach; ?>
