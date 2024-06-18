@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['agregarcar'])) {
                         <div class="text-center mb-3">
                             <form action="carrito.php" method="post">
                                 <input type="hidden" name="producto_id" value="<?php echo $producto['id_producto']; ?>">
-                                <button type="submit" class="btn btn-primary" name="agregarcar">
+                                <button type="submit" class="btn btn-info" name="agregarcar">
                                     Agregar al Carrito
                                 </button>
                             </form>
