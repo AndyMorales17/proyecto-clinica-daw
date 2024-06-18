@@ -19,32 +19,48 @@ Class Login_Controller extends Conexion {
         $rs=$this->ejecutarSQL($sql); 
     }
 
-   // public function login($usuario){
-   //     $sql = "SELECT * FROM Users WHERE correo = '".$usuario->getCorreo()."' AND contraseña = '".$usuario->getContraseña()."';";
-   //     $rs=$this->ejecutarSQL($sql);
-   //     $resultado=array();
-   //     while($fila=$rs->fetch_assoc()){
-   //         $resultado[]=new Users("","",$fila["contraseña"],"","","","",$fila["correo"]);
-   //     }
-   //     return $resultado;
-   // }
  
     public function validate($username, $password) {
-        $sql = "SELECT * FROM users WHERE correo = '".$username->getCorreo()."'";
-        $result = $this->ejecutarSQL($sql);
+        // Ejemplo de consulta preparada para evitar SQL Injection
+        $sql = "SELECT * FROM users WHERE correo = '$username'";
+
+        $rs=$this->ejecutarSQL($sql); 
+        
     
-        if ($result->num_rows > 0) {
-            $user = $result->fetch_assoc();
-            $pass=$user['contraseña'];
-            $stored_password = $this->encriptar('desencriptar',$pass);
+        if ($rs && $rs->num_rows > 0) {
+            $user = $rs->fetch_assoc();
+            $stored_password = $this->encriptar('desencriptar', $user['contraseña']);
             if ($password == $stored_password) {
                 return true;
             }
         }
         return false;
     }
-}
 
+    // Método para manejar el inicio de sesión
+    public function handleLogin($correo, $contraseña) {
+        // Validar las credenciales
+        $isValid = $this->validate($correo, $contraseña);
+
+        if ($isValid) {
+            // Iniciar sesión
+            $_SESSION['usuario'] = $correo;
+            echo "<script>alert('Credenciales incorrectas');</script>";
+            header('Location: index.php');
+
+            //exit;
+        } else {
+            // Mostrar mensaje de error y redirigir a la página de inicio
+            echo "<script>alert('Credenciales incorrectas');</script>";
+            header('Location: index.php');
+            exit;
+        }
+        
+
+
+
+}
+}
 
 ?>
 

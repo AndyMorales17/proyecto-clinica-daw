@@ -15,16 +15,9 @@
 <header>
     <?php 
       
-      if (isset($_SESSION['login']) && $_SESSION['login']) {
-          require_once("vistas/administrador/menuadmin.php");
-    } else {
-        
-        require_once("vistas/login.php");
-        require_once("vistas/Cliente/menucliente.php");
-
+        require_once("vistas/administrador/menuadmin.php");
         $contenido = new contenido();
-        require_once($contenido->mostra_archivo());
-    }
+        require_once($contenido->mostra_archivo());   
     ?>
 </header>
 <main></main>

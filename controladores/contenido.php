@@ -54,9 +54,6 @@ class contenido
         elseif($url[0] == "login"){
             $pagina = "vistas/login.php";
         }
-        elseif($url[0] == "registro"){
-            $pagina = "vistas/registrarte.php";
-        }
         elseif($url[0] == "stock"){
             $pagina = "vistas/administrador/stock.php";
         }
