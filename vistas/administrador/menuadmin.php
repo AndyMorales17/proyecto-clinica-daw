@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="categoria">CATEGORIA</a></li>           
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="proveedores">Proveedores</a></li>
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="stock">Stock</a></li> 
-                <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="login">login</a></li>
+                
             </ul>
             <button class="navbar-close text-uppercase font-weight-bold rounded" type="button" id="navbarCloseButton">
             <span style="font-size: 24px;">Cerrar <i class="fas fa-times"></i></span>
