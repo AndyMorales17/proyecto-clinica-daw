@@ -57,6 +57,11 @@ class contenido
         elseif($url[0] == "stock"){
             $pagina = "vistas/administrador/stock.php";
         }
+        elseif ($url[0] == "categoria2") { 
+            $pagina = "vistas/Cliente/categoria.php";}
+
+        elseif ($url[0] == "todos2") {
+            $pagina = "vistas/Cliente/productotodos.php";}
         return $pagina;
     }
 }
