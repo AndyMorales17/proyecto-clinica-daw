@@ -25,7 +25,7 @@ $categorias6 = $controlador->listar6();
                 <?php foreach ($categorias1 as $categoria): ?>
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="portfolio-item mx-auto">
-                        <a href="productos">
+                        <a href="pro1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
                                     <i class="fas fa-plus fa-3x"></i>
@@ -46,7 +46,7 @@ $categorias6 = $controlador->listar6();
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="portfolio-item mx-auto">
 
-                        <a href="producto2">
+                        <a href="pro2">
 
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
@@ -67,7 +67,7 @@ $categorias6 = $controlador->listar6();
                 <?php foreach ($categorias3 as $categoria): ?>
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="portfolio-item mx-auto">
-                        <a href="producto3">
+                        <a href="pro3">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
                                     <i class="fas fa-plus fa-3x"></i>
@@ -87,7 +87,7 @@ $categorias6 = $controlador->listar6();
                 <?php foreach ($categorias4 as $categoria): ?>
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="portfolio-item mx-auto">
-                        <a href="producto4">
+                        <a href="pro4">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
                                     <i class="fas fa-plus fa-3x"></i>
@@ -107,7 +107,7 @@ $categorias6 = $controlador->listar6();
                 <?php foreach ($categorias5 as $categoria): ?>
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="portfolio-item mx-auto">
-                        <a href="producto5">
+                        <a href="pro5">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
                                     <i class="fas fa-plus fa-3x"></i>
@@ -127,7 +127,7 @@ $categorias6 = $controlador->listar6();
                 <?php foreach ($categorias6 as $categoria): ?>
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="portfolio-item mx-auto">
-                        <a href="producto6">
+                        <a href="pro6">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
                                     <i class="fas fa-plus fa-3x"></i>

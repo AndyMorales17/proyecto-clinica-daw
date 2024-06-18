@@ -129,9 +129,10 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="nosotros">NOSOTROS</a></li>
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="categoria2">CATEGORIA</a></li>
                 <li class="nav-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="carrito">Carrito de compras</a></li>
-
+ 
             </ul>
             <button class="navbar-close text-uppercase font-weight-bold rounded" type="button" id="navbarCloseButton">
             <span style="font-size: 24px;">Cerrar <i class="fas fa-times"></i></span>

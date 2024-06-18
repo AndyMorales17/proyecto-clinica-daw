@@ -1,6 +1,6 @@
 <?php
 $controler_producto = new ProductosController();
-
+$num=6;
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = array();
 }
@@ -25,10 +25,13 @@ if (isset($_POST['agregarcar'])) {
 
 <!-- HTML para mostrar los productos, agregar y editar productos -->
 <section class="py-5 bg-light mt-5 mb-0">
+<div class="container mt-5">
+        <a href="categoria2" class="btn btn-dark">Regresar a categoria</a>
+    </div>
     <div class="container px-4 px-lg-5 mt-5">
         <h2 class="fw-bolder mb-4">PRODUCTOS</h2>
         <div class="row row-cols-1 row-cols-md-4 g-3">
-            <?php foreach ($controler_producto->todos() as $producto): ?>
+            <?php foreach ($controler_producto->listar($num) as $producto): ?>
                 <div class="col mb-5">
                     <div class="card h-100">
                         <?php

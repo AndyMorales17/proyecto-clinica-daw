@@ -1,5 +1,10 @@
 <?php
 // Inicializar el controlador de productos
+//session_destroy();
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = array();
+}
+
 $controler_producto = new ProductosController();
 $productos = $controler_producto->todos();
 

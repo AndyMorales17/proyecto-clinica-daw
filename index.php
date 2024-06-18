@@ -24,7 +24,18 @@ require_once("Modelo/Stock.php");
 require_once("controladores/controler_stock.php");
 
 if (isset($_SESSION['usuario'])){
-require_once("vistas/index.php");
+    if (isset($_SESSION['id_rol'])) {
+        $id_rol = $_SESSION['id_rol'];
+    
+        // Ejemplo de uso del rol
+        if ($id_rol == 1) {
+            require_once("vistas/Cliente/index.php");
+        } elseif ($id_rol == 2) {
+            require_once("vistas/administrador/index.php");
+        } else {
+            echo "<script>alert('No funciona');</script>";
+        }
+    }
 }else{
 require_once("vistas/login.php");
 }

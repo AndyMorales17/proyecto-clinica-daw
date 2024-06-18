@@ -21,9 +21,7 @@ class contenido
         }elseif ($url[0] == "categoria") {
             $pagina = "vistas/administrador/categoria.php";
         }elseif ($url[0] == "nosotros") {
-            $pagina = "vistas/administrador/nosotros.php";
-        }elseif ($url[0] == "contactos") {
-            $pagina = "vistas/administrador/contactos.php";
+            $pagina = "vistas/Cliente/nosotros.php";
         }
         elseif ($url[0] == "productos") {
             $pagina = "vistas/administrador/productos/productos.php";
@@ -60,10 +58,28 @@ class contenido
         elseif ($url[0] == "categoria2") { 
             $pagina = "vistas/Cliente/categoria.php";
         }elseif ($url[0] == "todos2") {
-            $pagina = "vistas/Cliente/productotodos.php";
+            $pagina = "vistas/Cliente/productos/productotodos.php";
         }elseif($url[0] == "carrito"){
-                $pagina = "vistas/Cliente/carrito.php";
+             $pagina = "vistas/Cliente/carrito.php";
+        }elseif($url[0] == "pro1"){
+            $pagina = "vistas/Cliente/productos/pro1.php";
         }
-        return $pagina;
-    }
-}
+        elseif($url[0] == "pro2"){
+            $pagina = "vistas/Cliente/productos/pro2.php";
+        }
+        elseif($url[0] == "pro3"){
+            $pagina = "vistas/Cliente/productos/pro3.php";
+        }
+        elseif($url[0] == "pro4"){
+            $pagina = "vistas/Cliente/productos/pro4.php";
+        }
+        elseif($url[0] == "pro5"){
+            $pagina = "vistas/Cliente/productos/pro5.php";
+        }
+        elseif($url[0] == "pro6"){
+            $pagina = "vistas/Cliente/productos/pro6.php";
+        }
+                return $pagina;
+            }
+        }
+        

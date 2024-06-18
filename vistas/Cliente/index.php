@@ -15,7 +15,8 @@
 <header>
     <?php 
       
-        require_once("vistas/cliente/menucliente.php");
+        require_once("menucliente.php");
+        
         $contenido = new contenido();
         require_once($contenido->mostra_archivo());   
     ?>

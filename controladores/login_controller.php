@@ -30,9 +30,10 @@ Class Login_Controller extends Conexion {
         if ($rs && $rs->num_rows > 0) {
             $user = $rs->fetch_assoc();
             $stored_password = $this->encriptar('desencriptar', $user['contraseña']);
-            if ($password == $stored_password) {
-                return true;
-            }
+                if ($password == $stored_password) {
+                    return $user;  // Devuelve el usuario completo si las credenciales son válidas
+                }
+            
         }
         return false;
     }
@@ -40,20 +41,20 @@ Class Login_Controller extends Conexion {
     // Método para manejar el inicio de sesión
     public function handleLogin($correo, $contraseña) {
         // Validar las credenciales
-        $isValid = $this->validate($correo, $contraseña);
+        $user = $this->validate($correo, $contraseña);
 
-        if ($isValid) {
+        if ($user) {
             // Iniciar sesión
             $_SESSION['usuario'] = $correo;
-            echo "<script>alert('Credenciales incorrectas');</script>";
-            header('Location: index.php');
+            $_SESSION['id_rol'] = $user['id_rol'];
+            header("Location: http://localhost/proyecto-clinica-daw/ ");
 
-            //exit;
+
         } else {
-            // Mostrar mensaje de error y redirigir a la página de inicio
-            echo "<script>alert('Credenciales incorrectas');</script>";
-            header('Location: index.php');
-            exit;
+
+            echo "<script>alert('Los datos no son correctos vuelva a invtentar');</script>";
+            
+            //exit;
         }
         
 
