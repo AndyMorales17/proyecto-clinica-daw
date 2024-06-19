@@ -47,13 +47,15 @@ Class Login_Controller extends Conexion {
             // Iniciar sesión
             $_SESSION['usuario'] = $correo;
             $_SESSION['id_rol'] = $user['id_rol'];
+            $_SESSION['id'] = $user['id'];
+
             header("Location: http://localhost/proyecto-clinica-daw/ ");
 
 
         } else {
 
             echo "<script>alert('Los datos no son correctos vuelva a invtentar');</script>";
-            
+            header("Location: http://localhost/proyecto-clinica-daw/ ");
             //exit;
         }
         

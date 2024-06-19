@@ -76,7 +76,7 @@ if (isset($_POST['registro'])) {
               <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Ingresar Credenciales</h3>
               <div data-mdb-input-init class="form-outline mb-4">
                 <label class="form-label" for="loginEmail">Correo</label>
-                <input type="text" name="loginEmail" id="loginEmail" class="form-control form-control-lg" />
+                <input type="email" name="loginEmail" id="loginEmail" class="form-control form-control-lg" />
               </div>
               <div data-mdb-input-init class="form-outline mb-4">
                 <label class="form-label" for="loginPassword">Contraseña</label>

@@ -79,6 +79,9 @@ class contenido
         elseif($url[0] == "pro6"){
             $pagina = "vistas/Cliente/productos/pro6.php";
         }
+        elseif($url[0] == "cerrar"){
+            $pagina = "vistas/cerrar.php";
+        }
                 return $pagina;
             }
         }

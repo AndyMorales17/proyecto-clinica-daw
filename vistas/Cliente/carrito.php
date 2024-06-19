@@ -5,12 +5,28 @@ if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = array();
 }
 
+
 $controler_producto = new ProductosController();
 $productos = $controler_producto->todos();
 
 $total = 0;
 $productos_carrito = [];
+if (isset($_POST['comprar'])) {
 
+    $id_usuario=$_SESSION['id'];
+    echo "<script>alert('$id_producto');</script>";
+ 
+
+   
+    if (isset($_POST["producto_id"]) && is_array($_POST["producto_id"])) {
+
+      //  foreach ($_POST["producto_id"] as $id_producto) {  
+          //  echo "<script>alert(' $id_producto');</script>";
+       // }
+
+       echo "<script>alert(' $cantidad');</script>";
+    } 
+}
 // Verificar si se ha enviado una solicitud para actualizar o quitar productos del carrito
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['actualizar_carrito'])) {
@@ -103,6 +119,7 @@ foreach ($_SESSION['carrito'] as $id => $cantidad) {
                     </tfoot>
                 </table>
                 <button type="submit" name="actualizar_carrito" class="btn btn-primary">Actualizar Carrito</button>
+                <button type="submit" name="comprar" class="btn btn-primary">Realiza compra</button>
                 <a href="todos2" class="btn btn-primary">Continuar comprando</a>
             </form>
         </div>
