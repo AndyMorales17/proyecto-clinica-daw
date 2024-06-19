@@ -44,6 +44,9 @@ class contenido
         elseif ($url[0] == "todos") {
             $pagina = "vistas/administrador/productos/productotodos.php";
         }
+        elseif ($url[0] == "compras") {
+            $pagina = "vistas/administrador/Compras.php";
+        }
         elseif($url[0] == "guarda"){
             $pagina = "vistas/administrador/guarda.php";
         }elseif ($url[0] == "proveedores") {

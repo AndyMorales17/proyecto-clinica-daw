@@ -6,6 +6,7 @@ if (!isset($_SESSION['carrito'])) {
 }
 
 
+
 $controler_producto = new ProductosController();
 $productos = $controler_producto->todos();
 
@@ -13,19 +14,38 @@ $total = 0;
 $productos_carrito = [];
 if (isset($_POST['comprar'])) {
 
-    $id_usuario=$_SESSION['id'];
-    echo "<script>alert('$id_producto');</script>";
- 
-
+   // Obtener el id_usuario desde la sesión (asegúrate de tener iniciada la sesión antes)
+   $id_usuario = $_SESSION['id'];
+    
+   // Obtener la fecha actual en formato 'Y-m-d'
+   $fecha_compra = date('Y-m-d');
    
-    if (isset($_POST["producto_id"]) && is_array($_POST["producto_id"])) {
+   // Crear una instancia de la clase Conexion
+   $conexion = new conexion();
+   
+   // Iterar sobre las cantidades de productos enviados en el formulario
+   foreach ($_POST['cantidad'] as $id_producto => $cantidad) {
+       // Escapar variables para prevenir inyección SQL (o usar sentencias preparadas)
+       $id_producto = $conexion->cn()->real_escape_string($id_producto);
+       $cantidad = $conexion->cn()->real_escape_string($cantidad);
+       
+       // Preparar la consulta SQL utilizando la instancia de la clase Conexion
+       $sql = "INSERT INTO Compras (id_usuario, id_producto, Fecha, Cantidad) 
+               VALUES ('$id_usuario', '$id_producto', '$fecha_compra', '$cantidad')";
+       
+       // Ejecutar la consulta SQL utilizando el método ejecutarSQL de la instancia de Conexion
+       $rs = $conexion->ejecutarSQL($sql);
+       
+       // Verificar si la consulta fue exitosa
 
-      //  foreach ($_POST["producto_id"] as $id_producto) {  
-          //  echo "<script>alert(' $id_producto');</script>";
-       // }
+       unset($_SESSION['carrito']);
 
-       echo "<script>alert(' $cantidad');</script>";
-    } 
+       if (!isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'] = array();
+    }
+   }
+
+     
 }
 // Verificar si se ha enviado una solicitud para actualizar o quitar productos del carrito
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

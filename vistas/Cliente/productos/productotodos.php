@@ -15,7 +15,7 @@ if (isset($_POST['agregarcar'])) {
     // Incrementa la cantidad del producto en el carrito
     $_SESSION['carrito'][$producto_id]++;
 
-    // header('Location: pagina_del_carrito.php');
+     
 }
 
 
@@ -57,6 +57,7 @@ if (isset($_POST['agregarcar'])) {
                                 <form method="post">
                                         <input type="hidden" value="<?php echo $producto['id_producto']; ?>" name="id">
                                         <button type="submit" name="agregarcar" class="btn btn-info" data-bs-dismiss="modal">Agregar al Carrito</button>
+                                        
                                     </form>
                                 
                         </div>

@@ -27,7 +27,7 @@ class ProductosController extends Conexion {
         ORDER BY 
             p.id_producto ASC;
         ";  
-                $rs = $this->ejecutarSQL($sql);
+        $rs = $this->ejecutarSQL($sql);
         $resultado = array();
         while ($fila = $rs->fetch_assoc()) {
             $resultado[] = $fila;
@@ -56,7 +56,7 @@ class ProductosController extends Conexion {
         VALUES ('{$Producto->getIdCategoria()}', '{$Producto->getIdProveedor()}', '{$Producto->getNombre()}',
                 '{$Producto->getDescripcion()}', '{$Producto->getPrecio()}', '{$Producto->getImagen()}', '{$Producto->getEstado()}')";
 
-$rs = $this->ejecutarSQL($sql);
+        $rs = $this->ejecutarSQL($sql);
 
     }
 

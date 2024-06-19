@@ -23,6 +23,9 @@ require_once("controladores/login_controller.php");
 require_once("Modelo/Stock.php");
 require_once("controladores/controler_stock.php");
 
+require_once("Modelo/Compra.php");
+require_once("controladores/controle_compras.php");
+
 if (isset($_SESSION['usuario'])){
     if (isset($_SESSION['id_rol'])) {
         $id_rol = $_SESSION['id_rol'];
