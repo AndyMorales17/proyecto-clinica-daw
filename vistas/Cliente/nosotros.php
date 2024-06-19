@@ -11,8 +11,10 @@
         </div>
         <!-- About Section Content-->
         <div class="row text-center">
-            <div class="col-lg-4 ms-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
-            <div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+            <div class="col-lg-4 ms-auto"><p class="lead">Ser la farmacia preferida por nuestra comunidad, reconocida por nuestra atención excepcional, productos de calidad y compromiso con el bienestar de nuestros clientes.</p></div>
+            <div class="col-lg-4 me-auto"><p class="lead">Atención al Cliente: Priorizar una experiencia excepcional y personalizada para cada cliente.
+Calidad y Seguridad: Ofrecer productos y servicios que cumplan con los más altos estándares.
+Ética y Transparencia: Actuar con integridad y honestidad en todas nuestras acciones.</p></div>
         </div>
     </div>
 </section>

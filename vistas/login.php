@@ -101,12 +101,13 @@ if (isset($_POST['registro'])) {
                 <label class="form-label" for="registerPassword">Contraseña</label>
               </div>
               <div class="form-outline mb-4">
-             <label class="form-label" for="roleSelect">Rol</label>
+             
              <select name="id_rol" id="roleSelect" class="form-control form-control-lg">
              <option value="">Seleccione un rol</option>
              <option value="1">Cliente</option>
              <option value="2">Administrador</option>        
              </select>
+             <label class="form-label" for="roleSelect">Rol</label>
               </div>
               <div class="form-outline mb-4">
                 <input type="text" name="nombre" id="registerFullname" class="form-control form-control-lg" />
