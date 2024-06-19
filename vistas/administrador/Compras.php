@@ -50,8 +50,8 @@ $ControllerCompras = new ControllerCompras($conexion);
                                     <td><?php echo htmlspecialchars($compra['producto']); ?></td>
                                     <td><?php echo htmlspecialchars($compra['Fecha']); ?></td>
                                     <td><?php echo htmlspecialchars($compra['Cantidad']); ?></td>
-                                    <td><?php echo htmlspecialchars($compra['precio']); ?></td>
-                                    <td><?php echo htmlspecialchars($compra['total']); ?></td>
+                                    <td>$<?php echo htmlspecialchars($compra['precio']); ?></td>
+                                    <td>$<?php echo htmlspecialchars($compra['total']); ?></td>
                                     
                                 </tr>
                                 <?php endforeach; ?>                      

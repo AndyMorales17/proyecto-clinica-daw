@@ -6,7 +6,7 @@ if (!isset($_SESSION['carrito'])) {
 }
 
 
-
+$ControllerStock = new ControllerStock();
 $controler_producto = new ProductosController();
 $productos = $controler_producto->todos();
 
@@ -29,17 +29,19 @@ if (isset($_POST['comprar'])) {
        $id_producto = $conexion->cn()->real_escape_string($id_producto);
        $cantidad = $conexion->cn()->real_escape_string($cantidad);
        
+       $ControllerStock->stock($id_producto,$cantidad);
        // Preparar la consulta SQL utilizando la instancia de la clase Conexion
        $sql = "INSERT INTO Compras (id_usuario, id_producto, Fecha, Cantidad) 
-               VALUES ('$id_usuario', '$id_producto', '$fecha_compra', '$cantidad')";
+               VALUES ('$id_usuario', '$id_producto', '$fecha_compra', '$cantidad')
+               ";
        
        // Ejecutar la consulta SQL utilizando el método ejecutarSQL de la instancia de Conexion
        $rs = $conexion->ejecutarSQL($sql);
        
-       // Verificar si la consulta fue exitosa
-
+       
+    
        unset($_SESSION['carrito']);
-
+       
        if (!isset($_SESSION['carrito'])) {
         $_SESSION['carrito'] = array();
     }

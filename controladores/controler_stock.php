@@ -52,7 +52,14 @@ class ControllerStock extends Conexion {
         WHERE id_stock = $id;";
         $rs = $this->ejecutarSQL($sql);
 
-    }
+    } 
+    public function stock($id_producto,$cantidad) {
+        $sql = "UPDATE Stock 
+                SET Cantidad = Cantidad - '$cantidad' 
+                WHERE id_producto = '$id_producto'";
+        $rs = $this->ejecutarSQL($sql);
+
+    }    
 
 }
 ?>
